@@ -1,9 +1,13 @@
 # Diagnóstico de Serviços Digitais — Goiás
 
-Aplicação estática (HTML + JS) publicada no GitHub Pages. As respostas são gravadas no Supabase.
+Site estático (GitHub Pages) + Supabase. Navegação por abas:
 
-- `index.html` — aplicação (visão do órgão `?t=TOKEN` e visão de administração `?admin=TOKEN`).
-- `questions.json` — as 64 perguntas e o órgão responsável por cada uma (campo `orgaos`).
+- **Início** — visão geral e atalhos.
+- **Orientações** — guia de preenchimento.
+- **Responder** — escolha do órgão e formulário das perguntas dele (salvamento automático, exportar XLSX).
+- **Andamento** — progresso por órgão e por bloco; exporta o consolidado em XLSX.
+- **Respostas** — consulta, com filtros, às respostas de todos os órgãos.
 
-Os tokens de acesso **não** estão neste repositório; ficam no banco (tabelas `orgaos` e `config`, sem acesso público).
-Alterar quem responde cada pergunta: editar o campo `orgaos` em `questions.json`.
+Arquivos: `index.html` (aplicação), `questions.json` (64 perguntas e o órgão de cada uma, campo `orgaos`), `orientacoes.html` (redireciona para a aba Orientações).
+
+O acesso é aberto por decisão do programa: qualquer pessoa pode ver e editar as respostas de qualquer órgão.

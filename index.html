@@ -24,66 +24,85 @@
   body{margin:0;font-family:'IBM Plex Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
   h1,h2,h3{font-family:'Source Serif 4',serif;margin:0;font-weight:700;letter-spacing:-0.01em;}
   p{margin:0;}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+  a{color:inherit;}
   [hidden]{display:none !important;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
 
-  header.top{background:var(--ink);color:var(--paper-soft);padding:44px 0 0;}
+  /* ===== barra superior ===== */
+  .topbar{background:var(--ink);border-bottom:1px solid var(--line-on-ink);position:sticky;top:0;z-index:30;}
+  .topbar .in{max-width:1000px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:26px;}
+  .brand{flex:none;font-family:'Source Serif 4',serif;font-weight:700;font-size:16px;color:var(--paper-soft);text-decoration:none;padding:14px 0;line-height:1.2;}
+  .brand small{display:block;font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:11px;color:var(--seal-light);}
+  .menu{display:flex;gap:2px;overflow-x:auto;flex:1;justify-content:flex-end;}
+  .menu a{flex:none;color:rgba(239,233,220,0.72);text-decoration:none;font-size:13.5px;font-weight:600;padding:20px 13px 17px;border-bottom:3px solid transparent;}
+  .menu a:hover{color:var(--seal-light);}
+  .menu a.on{color:var(--seal-light);border-bottom-color:var(--seal-light);}
+
+  /* ===== cabeçalho de página ===== */
+  header.top{background:var(--ink);color:var(--paper-soft);padding:46px 0 0;}
+  header.top .pad-b{padding-bottom:30px;}
   .org-line{font-size:13px;color:var(--seal-light);font-weight:600;margin-bottom:4px;}
-  .sub-line{font-size:13px;color:rgba(239,233,220,0.6);margin-bottom:22px;}
-  header.top h1{font-size:clamp(26px,4vw,40px);line-height:1.12;color:var(--paper-soft);margin-bottom:8px;}
-  .who-name{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,2.4vw,23px);color:var(--seal-light);margin-bottom:26px;}
+  .sub-line{font-size:13px;color:rgba(239,233,220,0.6);margin-bottom:20px;}
+  header.top h1{font-size:clamp(28px,4.4vw,44px);line-height:1.12;color:var(--paper-soft);margin-bottom:10px;max-width:760px;}
+  .who-name{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,2.4vw,23px);color:var(--seal-light);margin-bottom:24px;max-width:680px;line-height:1.4;}
   .progress-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding-bottom:26px;}
   .progress-box{flex:1;min-width:240px;}
   .progress-text{font-size:13px;color:rgba(239,233,220,0.75);margin-bottom:8px;}
   .progress-text b{color:var(--seal-light);font-family:'Source Serif 4',serif;font-size:20px;}
   .bar{height:6px;background:var(--ink-3);}
   .bar i{display:block;height:100%;background:var(--seal);width:0;transition:width .3s;}
-  .btn{font-family:inherit;font-size:14px;font-weight:600;padding:11px 20px;border:1px solid var(--seal);background:var(--seal);color:var(--ink);cursor:pointer;border-radius:2px;}
+  .btn{font-family:inherit;font-size:14px;font-weight:600;padding:11px 20px;border:1px solid var(--seal);background:var(--seal);color:var(--ink);cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;text-align:center;}
   .btn:hover{background:var(--seal-light);}
   .btn.ghost{background:transparent;color:var(--paper-soft);border-color:var(--line-on-ink);}
   .btn.ghost:hover{border-color:var(--seal-light);color:var(--seal-light);}
-  .tabs{display:flex;gap:4px;border-top:1px solid var(--line-on-ink);}
-  .tab{font-family:inherit;font-size:14px;font-weight:600;padding:14px 20px;border:0;background:transparent;color:rgba(239,233,220,0.65);cursor:pointer;border-bottom:3px solid transparent;}
-  .tab.on{color:var(--seal-light);border-bottom-color:var(--seal-light);}
+  .btn.outline{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn.outline:hover{background:var(--ink);color:var(--paper-soft);}
 
-  main{padding:48px 0 90px;}
-  .lead{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:680px;margin-bottom:28px;}
+  main{padding:44px 0 90px;}
+  .lead{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:680px;margin-bottom:26px;}
   .kicker{font-size:13px;font-weight:600;color:var(--seal);margin:0 0 12px;}
   h2.h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin-bottom:16px;max-width:680px;}
+  .quote{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;line-height:1.5;border-left:3px solid var(--seal);padding-left:16px;max-width:620px;margin:26px 0;}
 
-  /* guide */
-  .steps{display:flex;flex-direction:column;margin:20px 0 40px;}
+  /* ===== início ===== */
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:34px;}
+  .stat-row{display:flex;flex-wrap:wrap;gap:14px;padding-bottom:44px;}
+  .stat{border:1px solid var(--line-on-ink);padding:12px 18px;background:rgba(239,233,220,0.04);min-width:120px;}
+  .stat b{display:block;font-family:'Source Serif 4',serif;font-size:28px;color:var(--seal-light);line-height:1.1;}
+  .stat span{font-size:12.5px;color:rgba(239,233,220,0.65);}
+  .action-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:6px 0 40px;}
+  .action-card{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:26px 24px 24px;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);}
+  .action-card:hover{border-color:var(--seal);box-shadow:0 0 0 1px var(--seal) inset;}
+  .action-card .n{font-family:'Source Serif 4',serif;font-size:30px;font-weight:700;color:var(--seal);line-height:1;margin-bottom:12px;}
+  .action-card h3{font-size:18px;margin-bottom:8px;}
+  .action-card p{font-size:14px;line-height:1.55;color:var(--ink-soft);margin-bottom:16px;}
+  .action-card .go{margin-top:auto;font-size:13.5px;font-weight:600;color:var(--seal);}
+  .steps{display:flex;flex-direction:column;margin:18px 0 10px;}
   .step{display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--line-on-paper);}
   .step:last-child{border-bottom:1px solid var(--line-on-paper);}
   .step .n{flex:none;font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:var(--seal);width:36px;}
   .step h3{font-size:16.5px;margin-bottom:3px;}
   .step p{font-size:14.5px;color:var(--ink-soft);line-height:1.55;}
-  .dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 20px;}
-  .dd{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:22px 24px;}
-  .dd h3{font-size:17px;margin-bottom:12px;}
-  .dd.do h3{color:var(--trust);} .dd.dont h3{color:var(--alert);}
-  .dd ul{list-style:none;margin:0;padding:0;}
-  .dd li{font-size:14px;line-height:1.55;color:var(--ink-soft);padding:0 0 10px 20px;position:relative;}
-  .dd li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;}
-  .dd.do li::before{background:var(--trust);} .dd.dont li::before{background:var(--alert);}
-  .dd li b{color:var(--ink);font-weight:600;}
-  .example{background:var(--ink);color:var(--paper-soft);padding:6px 0;margin:20px 0;}
-  .example .re{padding:14px 22px;border-top:1px solid var(--line-on-ink);}
-  .example .re:first-child{border-top:0;}
-  .example .re.fill{background:rgba(179,134,47,0.16);}
-  .example .tag{display:block;font-size:11px;font-weight:600;color:rgba(239,233,220,0.5);margin-bottom:5px;}
-  .example .fill .tag{color:var(--seal-light);}
-  .example p{font-family:'Source Serif 4',serif;font-size:16px;line-height:1.45;}
-  .quote{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;line-height:1.5;border-left:3px solid var(--seal);padding-left:16px;max-width:620px;margin:24px 0;}
 
-  /* questions */
-  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;align-items:center;}
+  /* ===== órgãos ===== */
+  .org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:18px;margin-bottom:10px;}
+  .org-card{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:24px 24px 26px;display:flex;flex-direction:column;}
+  .org-card h3{font-size:19px;margin-bottom:6px;}
+  .org-meta{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+  .progress-text.dark{color:var(--ink-soft);}
+  .progress-text.dark b{color:var(--seal);}
+  .bar.light{background:var(--paper-dark);margin-bottom:20px;}
+  .btn-link{margin-top:auto;}
+
+  /* ===== perguntas ===== */
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center;}
+  .toolbar .grow{flex:1;}
   .chip{font-family:inherit;border:1px solid var(--ink);border-radius:20px;padding:7px 15px;font-size:13px;font-weight:500;background:transparent;color:var(--ink);cursor:pointer;}
   .chip.on{background:var(--ink);color:var(--paper-soft);}
   .block-head{display:flex;align-items:baseline;gap:14px;margin:34px 0 14px;padding-top:8px;border-top:1px solid var(--line-on-paper);}
   .block-head .l{font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;color:var(--seal);line-height:1;}
   .block-head h2{font-size:21px;}
-  .q{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:22px 24px 20px;margin-bottom:14px;}
+  .q{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:22px 24px 20px;margin-bottom:14px;scroll-margin-top:90px;}
   .q.done{border-left:4px solid var(--trust);}
   .q-top{display:flex;gap:14px;align-items:baseline;margin-bottom:10px;}
   .q-n{flex:none;font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;color:var(--seal);min-width:30px;}
@@ -92,194 +111,471 @@
   .q-also{font-size:12.5px;color:var(--trust);font-weight:600;margin:6px 0 0 44px;}
   .q-fields{margin:14px 0 0 44px;display:grid;gap:12px;}
   label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:5px;}
-  textarea,input[type=text],select{width:100%;font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff;border:1px solid var(--line-on-paper);border-radius:2px;padding:10px 12px;line-height:1.5;}
+  textarea,input[type=text],input[type=search],select{width:100%;font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff;border:1px solid var(--line-on-paper);border-radius:2px;padding:10px 12px;line-height:1.5;}
   textarea{min-height:92px;resize:vertical;}
   textarea:focus,input:focus,select:focus{outline:2px solid var(--seal);outline-offset:0;border-color:var(--seal);}
   .row2{display:grid;grid-template-columns:1fr 200px;gap:12px;}
   .save-line{font-size:12px;color:var(--ink-soft);margin:8px 0 0 44px;min-height:16px;}
   .save-line.ok{color:var(--trust);} .save-line.err{color:var(--alert);font-weight:600;}
+  .toolbar select{width:auto;min-width:200px;}
+  .toolbar input[type=search]{width:240px;}
 
-  /* landing / admin */
-  .box{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:28px;max-width:640px;}
-  table{width:100%;border-collapse:collapse;background:var(--paper-soft);font-size:14px;}
+  /* ===== andamento e respostas ===== */
+  table{width:100%;border-collapse:collapse;background:var(--paper-soft);font-size:14px;margin-bottom:34px;}
   th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-on-paper);vertical-align:middle;}
   th{font-size:12px;color:var(--ink-soft);font-weight:600;background:var(--paper-dark);}
   td .bar{width:140px;background:var(--paper-dark);display:inline-block;vertical-align:middle;margin-right:8px;}
-  .linkcell{font-family:ui-monospace,monospace;font-size:12px;word-break:break-all;}
+  td a{color:var(--trust);font-weight:600;}
+  .ans{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:20px 24px;margin-bottom:12px;}
+  .ans-top{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:10px;font-size:12.5px;}
+  .badge{display:inline-block;border:1px solid var(--ink-soft);border-radius:20px;padding:2px 10px;font-size:11.5px;font-weight:600;color:var(--ink-soft);}
+  .badge.org{border-color:var(--trust);color:var(--trust);}
+  .badge.parcial{border-color:var(--seal);color:var(--seal);}
+  .badge.nao_sei{border-color:var(--alert);color:var(--alert);}
+  .ans h3{font-size:16.5px;line-height:1.4;margin-bottom:10px;}
+  .ans .a{font-size:14.5px;line-height:1.6;white-space:pre-wrap;margin-bottom:8px;}
+  .ans .d{font-size:13px;color:var(--ink-soft);}
+  .ans .meta{font-size:12px;color:var(--ink-soft);margin-top:10px;display:flex;gap:14px;flex-wrap:wrap;align-items:center;}
+  .ans .meta a{color:var(--trust);font-weight:600;}
+  .empty{background:var(--paper-soft);border:1px dashed var(--line-on-paper);padding:30px;text-align:center;color:var(--ink-soft);}
+
+  .box{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:28px;max-width:640px;}
   .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper-soft);padding:12px 20px;font-size:14px;border-left:4px solid var(--alert);z-index:50;max-width:90%;}
   footer.foot{background:var(--ink);color:rgba(239,233,220,0.6);padding:28px 0;font-size:13px;}
 
-  .org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:18px;margin-bottom:10px;}
-  .org-card{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:24px 24px 26px;display:flex;flex-direction:column;}
-  .org-card h3{font-size:19px;margin-bottom:6px;}
-  .org-meta{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
-  .progress-text.dark{color:var(--ink-soft);}
-  .progress-text.dark b{color:var(--seal);}
-  .bar.light{background:var(--paper-dark);margin-bottom:20px;}
-  .btn-link{display:inline-block;text-align:center;text-decoration:none;margin-top:auto;}
-  @media (max-width:760px){
-    .dd-grid,.row2{grid-template-columns:1fr;}
-    .q-why,.q-fields,.save-line,.q-also{margin-left:0;}
-    .wrap{padding:0 18px;}
+  /* ===== guia de orientações (escopo .guide) ===== */
+  .subnav{background:var(--ink-2);border-bottom:1px solid var(--line-on-ink);position:sticky;top:var(--tb,58px);z-index:20;}
+  .subnav .in{max-width:1000px;margin:0 auto;padding:0 28px;display:flex;gap:4px;overflow-x:auto;}
+  .subnav button{flex:none;font-family:inherit;background:none;border:0;border-bottom:2px solid transparent;color:rgba(239,233,220,0.75);font-size:13px;font-weight:500;padding:13px 12px;cursor:pointer;}
+  .subnav button:hover{color:var(--seal-light);border-bottom-color:var(--seal-light);}
+.guide .container{max-width:760px;margin:0 auto;padding:0 28px;}.guide .container-wide{max-width:1080px;margin:0 auto;padding:0 28px;}.guide .section{padding:80px 0;position:relative;}.guide .bg-ink{background:var(--ink);color:var(--paper-soft);}.guide .bg-paper{background:var(--paper);}.guide .bg-paper-dark{background:var(--paper-dark);}.guide .cta{display:inline-block;font-family:inherit;font-size:15px;font-weight:600;padding:13px 24px;background:var(--seal);color:var(--ink);text-decoration:none;border-radius:2px;}.guide .cta:hover{background:var(--seal-light);}.guide .kicker{font-size:13px;font-weight:600;color:var(--seal);margin:0 0 14px;}.guide .bg-ink .kicker{color:var(--seal-light);}.guide .h2{font-size:clamp(26px,3.4vw,38px);line-height:1.18;margin-bottom:18px;max-width:680px;}.guide .bg-ink .h2{color:var(--paper-soft);}.guide .lead{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:640px;margin-bottom:8px;}.guide .bg-ink .lead{color:rgba(239,233,220,0.72);}.guide .bg-paper-dark .lead{color:#3C4642;}.guide .quote-inline{font-family:'Source Serif 4',serif;font-style:italic;font-size:19px;line-height:1.5;border-left:3px solid var(--seal);padding-left:18px;max-width:620px;margin-top:28px;}.guide .bg-ink .quote-inline{color:var(--paper-soft);border-left-color:var(--seal-light);}
+
+  /* hero */.guide .hero{padding:96px 0 88px;overflow:hidden;}.guide .hero-bg{position:absolute;inset:0;pointer-events:none;}.guide .hero-content{position:relative;z-index:1;}.guide .kicker-group{margin-bottom:30px;}.guide .kicker-group p{font-size:13px;color:rgba(239,233,220,0.6);line-height:1.5;}.guide .kicker-group p.org{color:var(--seal-light);font-weight:600;margin-bottom:2px;}.guide .h1{font-size:clamp(32px,5vw,54px);line-height:1.1;max-width:800px;margin-bottom:28px;color:var(--paper-soft);}.guide .hero-concept{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(19px,2.3vw,25px);color:var(--seal-light);max-width:580px;line-height:1.4;margin-bottom:30px;}.guide .meta-row{display:flex;flex-wrap:wrap;gap:14px;}.guide .meta{border:1px solid var(--line-on-ink);padding:12px 18px;background:rgba(239,233,220,0.04);}.guide .meta b{display:block;font-family:'Source Serif 4',serif;font-size:26px;color:var(--seal-light);line-height:1.1;}.guide .meta span{font-size:12.5px;color:rgba(239,233,220,0.65);}
+
+  /* steps */.guide .timeline{display:flex;flex-direction:column;margin-top:30px;}.guide .timeline-step{display:flex;gap:22px;padding:20px 0;border-top:1px solid var(--line-on-paper);}.guide .timeline-step:last-child{border-bottom:1px solid var(--line-on-paper);}.guide .timeline-num{flex:none;font-family:'Source Serif 4',serif;font-size:26px;font-weight:700;color:var(--seal);width:44px;}.guide .timeline-body h3{font-size:17px;margin-bottom:4px;}.guide .timeline-body p{font-size:14.5px;color:var(--ink-soft);line-height:1.55;}
+
+  /* columns table */.guide .col-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:34px;}.guide .col-card{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:22px 24px 24px;}.guide .col-card.fill{background:#fff;border-color:var(--seal);box-shadow:0 0 0 1px var(--seal) inset;}.guide .col-tag{display:inline-block;font-size:11px;font-weight:600;padding:3px 10px;border:1px solid var(--ink-soft);border-radius:20px;color:var(--ink-soft);margin-bottom:12px;}.guide .col-card.fill .col-tag{border-color:var(--seal);color:var(--seal);}.guide .col-card h3{font-size:18px;margin-bottom:8px;}.guide .col-card p{font-size:14px;line-height:1.55;color:var(--ink-soft);}
+
+  /* example */.guide .row-example{margin-top:34px;border:1px solid var(--line-on-ink);}.guide .row-example .re{padding:18px 22px;border-top:1px solid var(--line-on-ink);}.guide .row-example .re:first-child{border-top:0;}.guide .re.fillrow{background:rgba(179,134,47,0.14);}.guide .re .tag{display:block;font-size:11px;font-weight:600;color:rgba(239,233,220,0.5);margin-bottom:6px;}.guide .re.fillrow .tag{color:var(--seal-light);}.guide .re p{font-family:'Source Serif 4',serif;font-size:16.5px;line-height:1.45;}
+
+  /* do / dont */.guide .dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:34px;}.guide .dd{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:26px 26px 28px;}.guide .dd h3{font-size:18px;margin-bottom:14px;}.guide .dd.do h3{color:var(--trust);}.guide .dd.dont h3{color:var(--alert);}.guide .dd ul{list-style:none;margin:0;padding:0;}.guide .dd li{font-size:14.5px;line-height:1.55;color:var(--ink-soft);padding:0 0 12px 22px;position:relative;}.guide .dd li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;}.guide .dd.do li::before{background:var(--trust);}.guide .dd.dont li::before{background:var(--alert);}.guide .dd li b{color:var(--ink);font-weight:600;}
+
+  /* blocks */.guide .block-list{margin-top:34px;display:flex;flex-direction:column;gap:2px;background:var(--line-on-paper);}.guide .block{background:var(--paper);display:grid;grid-template-columns:64px 1fr 120px;gap:18px;padding:20px 22px;align-items:start;}.guide .block-letter{font-family:'Source Serif 4',serif;font-size:34px;font-weight:700;color:var(--seal);line-height:1;}.guide .block h3{font-size:17px;margin-bottom:6px;}.guide .block p{font-size:13.5px;line-height:1.55;color:var(--ink-soft);}.guide .block .who{margin-top:8px;font-size:12.5px;color:var(--trust);font-weight:600;}.guide .block-n{text-align:right;font-size:12.5px;color:var(--ink-soft);}.guide .block-n b{display:block;font-family:'Source Serif 4',serif;font-size:22px;color:var(--ink);}
+
+  /* chips */.guide .chip-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}.guide .chip{border:1px solid var(--ink);border-radius:20px;padding:8px 16px;font-size:13.5px;font-weight:500;}.guide .bg-ink .chip{border-color:var(--line-on-ink);color:var(--paper-soft);}
+
+  /* stamps */.guide .stamp-row{display:flex;gap:28px;flex-wrap:wrap;margin:34px 0 10px;}.guide .stamp{width:118px;height:118px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;border:3px double currentColor;transform:rotate(-6deg);font-family:'Source Serif 4',serif;font-size:26px;font-weight:700;gap:4px;text-align:center;}.guide .stamp span{font-family:'IBM Plex Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.03em;padding:0 8px;}.guide .stamp-ok{color:#7FAE83;}.guide .stamp-warn{color:var(--seal-light);}.guide .stamp-no{color:#C97E70;}.guide .stamp-help{font-size:14px;color:rgba(239,233,220,0.7);line-height:1.6;max-width:640px;margin-top:14px;}
+
+  /* final */.guide .final{padding:96px 0 90px;}.guide .final-h2{font-size:clamp(28px,4.2vw,44px);color:var(--paper-soft);margin-bottom:22px;max-width:640px;}.guide .final-quote{font-size:16.5px;line-height:1.65;color:rgba(239,233,220,0.72);max-width:580px;margin-bottom:34px;}.guide .final-stamp{border-top:1px solid var(--line-on-ink);padding-top:30px;}.guide .final-memorable{font-family:'Source Serif 4',serif;font-weight:700;font-size:clamp(22px,3.2vw,30px);color:var(--paper-soft);line-height:1.3;}
+
+  
+  .guide .container,.guide .container-wide{max-width:1000px;}
+  .guide .hero .h1{margin-bottom:24px;}
+  .guide .col-grid,.guide .dd-grid{grid-template-columns:repeat(2,1fr);}
+  .guide .section{scroll-margin-top:120px;}
+  .guide .cta{display:inline-block;font-size:15px;font-weight:600;padding:13px 24px;background:var(--seal);color:var(--ink);text-decoration:none;border-radius:2px;}
+  .guide .cta:hover{background:var(--seal-light);}
+  @media (max-width:860px){
+    .guide .section{padding:56px 0;}
+    .guide .col-grid,.guide .dd-grid{grid-template-columns:1fr;}
+    .guide .block{grid-template-columns:48px 1fr;}
+    .guide .block-n{grid-column:2;text-align:left;}
+    .guide .block-n b{display:inline;margin-right:6px;}
   }
-  @media print{ .tabs,.btn{display:none;} }
+
+
+  @media (max-width:860px){
+    .action-grid{grid-template-columns:1fr;}
+    .row2{grid-template-columns:1fr;}
+    .q-why,.q-fields,.save-line,.q-also{margin-left:0;}
+    .wrap,.topbar .in,.subnav .in{padding-left:18px;padding-right:18px;}
+    .topbar .in{gap:0 12px;flex-wrap:wrap;}
+    .menu{flex-basis:100%;justify-content:flex-start;margin:0 -8px;}
+    .menu a{padding:10px 11px 9px;}
+    .brand{padding:12px 0 4px;}
+    .brand small{display:none;}
+    .toolbar select,.toolbar input[type=search]{width:100%;}
+  }
+  @media print{ .topbar,.subnav,.btn{display:none;} }
 </style>
 </head>
 <body>
 
-<div id="app"></div>
+<div class="topbar"><div class="in">
+  <a class="brand" href="#/">Diagnóstico de Serviços Digitais<small>Governo de Goiás</small></a>
+  <nav class="menu" id="menu">
+    <a href="#/" data-r="home">Início</a>
+    <a href="#/orientacoes" data-r="orientacoes">Orientações</a>
+    <a href="#/responder" data-r="responder">Responder</a>
+    <a href="#/andamento" data-r="andamento">Andamento</a>
+    <a href="#/respostas" data-r="respostas">Respostas</a>
+  </nav>
+</div></div>
+
+<div id="view"></div>
+
+<div id="v-guia" class="guide" hidden>
+  <div class="subnav"><div class="in" id="subnav">
+    <button data-go="objetivo">Objetivo</button>
+    <button data-go="passos">Passo a passo</button>
+    <button data-go="colunas">Os campos</button>
+    <button data-go="exemplo">Exemplo</button>
+    <button data-go="boas-praticas">Boas práticas</button>
+    <button data-go="blocos">Blocos e responsáveis</button>
+    <button data-go="cuidados">Cuidados</button>
+    <button data-go="envio">Ao encerrar</button>
+  </div></div>
+<header class="section bg-ink hero">
+  <div class="hero-bg">
+    <svg width="100%" height="100%" style="position:absolute;inset:0;" preserveAspectRatio="none">
+      <rect x="58%" y="4%" width="34%" height="120" fill="#1D3336" stroke="rgba(239,233,220,0.1)" transform="rotate(-4 700 60)"/>
+      <rect x="64%" y="10%" width="30%" height="120" fill="#284245" stroke="rgba(239,233,220,0.12)" transform="rotate(3 700 120)"/>
+      <rect x="60%" y="18%" width="32%" height="120" fill="#1D3336" stroke="rgba(179,134,47,0.25)" transform="rotate(-2 700 200)"/>
+    </svg>
+  </div>
+  <div class="container hero-content">
+    <div class="kicker-group">
+      <p class="org">Governo de Goiás</p>
+      <p>Diagnóstico de Serviços Digitais · Guia de preenchimento</p>
+    </div>
+    <h1 class="h1">Como preencher o questionário de diagnóstico</h1>
+    <p class="hero-concept">“Respostas parciais são bem-vindas. Respostas honestas são essenciais.”</p>
+    <div class="meta-row">
+      <div class="meta"><b>64</b><span>perguntas</span></div>
+      <div class="meta"><b>8</b><span>blocos temáticos</span></div>
+      <div class="meta"><b>3</b><span>campos a preencher</span></div>
+    </div>
+    <p style="margin-top:30px"><a class="cta" href="#/responder">Escolher meu órgão e responder →</a></p>
+  </div>
+</header>
+
+
+
+<!-- OBJETIVO -->
+<section class="section bg-paper" id="objetivo">
+  <div class="container">
+    <p class="kicker">Para que serve</p>
+    <h2 class="h2">Confirmar a situação atual para acordar o escopo do programa</h2>
+    <p class="lead">O questionário reúne perguntas sobre serviços, canais, dados, sistemas, infraestrutura e prioridades. As respostas permitem propor o que é realista para Goiás, sem partir de suposições.</p>
+    <p class="quote-inline">Não há resposta certa ou errada: o que existe hoje, como existe, é o que precisamos saber.</p>
+  </div>
+</section>
+
+<!-- PASSO A PASSO -->
+<section class="section bg-paper-dark" id="passos">
+  <div class="container">
+    <p class="kicker">Passo a passo</p>
+    <h2 class="h2">Cinco passos para um preenchimento completo</h2>
+    <div class="timeline">
+      <div class="timeline-step"><div class="timeline-num">1</div><div class="timeline-body"><h3>Escolha o seu órgão</h3><p>Na página inicial, clique no botão do seu órgão. Abrem-se apenas as perguntas que ele está mais bem posicionado para responder.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">2</div><div class="timeline-body"><h3>Leia a pergunta e o “Por que isso ajuda”</h3><p>A justificativa explica o que será feito com a resposta e ajuda a calibrar o nível de detalhe.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">3</div><div class="timeline-body"><h3>Escreva a resposta no campo “Resposta”</h3><p>Seja direto. Números, datas e nomes de sistemas valem mais que descrições gerais.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">4</div><div class="timeline-body"><h3>Indique o documento de apoio</h3><p>Quando existir, cite o nome e a data do documento no campo “Documento de apoio”.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">5</div><div class="timeline-body"><h3>Marque a situação e encaminhe o que não for seu</h3><p>No campo “Situação”, indique se a resposta está completa, é parcial ou estimada, ou se é “não sei / encaminhar”. Neste último caso, escreva na resposta quem poderia responder.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COLUNAS -->
+<section class="section bg-paper" id="colunas">
+  <div class="container-wide">
+    <p class="kicker">Conheça o questionário</p>
+    <h2 class="h2">O que há em cada pergunta</h2>
+    <p class="lead">Os três campos destacados em dourado são os que você preenche: Resposta, Documento de apoio e Situação. O restante é de leitura.</p>
+    <div class="col-grid">
+      <div class="col-card"><span class="col-tag">Leitura</span><h3>#  e  Tema</h3><p>Número da pergunta e o bloco temático (A a H) a que pertence.</p></div>
+      <div class="col-card"><span class="col-tag">Leitura</span><h3>Pergunta</h3><p>O que queremos saber. Algumas perguntas têm mais de uma parte; responda a cada uma delas.</p></div>
+      <div class="col-card"><span class="col-tag">Leitura</span><h3>Também respondida por</h3><p>Quando a pergunta é dividida entre órgãos, aparece o aviso. Cada órgão responde a sua parte.</p></div>
+      <div class="col-card"><span class="col-tag">Leitura</span><h3>Por que isso ajuda</h3><p>O motivo da pergunta e o uso que será dado à resposta.</p></div>
+      <div class="col-card fill"><span class="col-tag">Preencher</span><h3>Resposta</h3><p>Sua resposta, em texto livre. Pode ser curta. Se não souber, escreva “não sei” e, se possível, quem saberia.</p></div>
+      <div class="col-card fill"><span class="col-tag">Preencher</span><h3>Situação</h3><p>Respondida, parcial ou estimada, ou “não sei / encaminhar”. Ajuda a saber o que ainda precisa de atenção.</p></div>
+      <div class="col-card fill"><span class="col-tag">Preencher</span><h3>Documento de apoio</h3><p>Nome, data e, se houver, link do documento que sustenta a resposta: lista, norma, relatório, painel ou contrato.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEMPLO -->
+<section class="section bg-ink" id="exemplo">
+  <div class="container">
+    <p class="kicker">Exemplo</p>
+    <h2 class="h2">Como é uma boa resposta</h2>
+    <p class="lead">O exemplo abaixo mostra o nível de detalhe esperado.</p>
+    <div class="row-example">
+      <div class="re"><span class="tag">Pergunta</span><p>Quantos serviços Goiás oferece no total e quantos podem ser realizados de ponta a ponta?</p></div>
+      <div class="re fillrow"><span class="tag">Resposta</span><p>Cerca de 130 publicados; aproximadamente 110 podem ser concluídos sem ida a um posto.</p></div>
+      <div class="re fillrow"><span class="tag">Documento de apoio</span><p>Lista de serviços do Expresso, ago/2026</p></div>
+    </div>
+    <p class="quote-inline">Um número, uma estimativa assumida como tal e a fonte. Isso já basta.</p>
+  </div>
+</section>
+
+<!-- BOAS PRÁTICAS -->
+<section class="section bg-paper" id="boas-praticas">
+  <div class="container-wide">
+    <p class="kicker">Boas práticas</p>
+    <h2 class="h2">O que ajuda e o que atrapalha</h2>
+    <div class="dd-grid">
+      <div class="dd do">
+        <h3>Faça</h3>
+        <ul>
+          <li><b>Responda mesmo parcialmente.</b> Meia resposta hoje vale mais que a resposta perfeita adiada.</li>
+          <li><b>Responda cada parte</b> das perguntas compostas, como nas de número 2, 3, 5, 39 e 40.</li>
+          <li><b>Informe estimativas</b> como estimativas: “cerca de”, “em torno de”, “dado de 2025”.</li>
+          <li><b>Dê números e datas</b> sempre que existirem: volumes, prazos, vigência de contratos.</li>
+          <li><b>Cite o documento</b> que sustenta a resposta no campo ao lado.</li>
+          <li><b>Escreva “não sei”</b> quando for o caso, e indique quem pode saber.</li>
+          <li><b>Aponte divergências</b> entre áreas: elas são informação útil.</li>
+        </ul>
+      </div>
+      <div class="dd dont">
+        <h3>Evite</h3>
+        <ul>
+          <li><b>Não deixe em branco sem explicar.</b> Um “não se aplica” ou “não sei” já é uma resposta.</li>
+          <li><b>Não responda pelo que gostaria que fosse.</b> Queremos o cenário real, não o ideal.</li>
+          <li><b>Não apague respostas de outros órgãos.</b> Todos podem ver e editar; altere só o que for do seu órgão.</li>
+          <li><b>Não insira</b> senhas, dados pessoais de cidadãos ou informações sigilosas.</li>
+          <li><b>Não use abreviações internas</b> sem explicar o significado.</li>
+          <li><b>Não aguarde</b> que todas as áreas respondam: as respostas já ficam salvas automaticamente.</li>
+          <li><b>Não feche a página</b> enquanto aparecer “Salvando…” abaixo da pergunta.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCOS -->
+<section class="section bg-paper-dark" id="blocos">
+  <div class="container-wide">
+    <p class="kicker">Mapa do questionário</p>
+    <h2 class="h2">Oito blocos, e quem tende a responder cada um</h2>
+    <p class="lead">Use o mapa abaixo para dividir o trabalho. Sead e Secti aparecem em muitos blocos; vale combinar com antecedência quem coordena.</p>
+    <div class="block-list">
+      <div class="block"><div class="block-letter">A</div><div><h3>Serviços e canais</h3><p>Quantos serviços existem, quais exigem presença, volumes por canal, catálogo e abandono de jornadas.</p><p class="who">Sead / Governo digital · Responsáveis pelos serviços nas secretarias · Ouvidoria · Operações de atendimento</p></div><div class="block-n"><b>8</b>perguntas · 1 a 8</div></div>
+      <div class="block"><div class="block-letter">B</div><div><h3>A porta de entrada do cidadão</h3><p>goias.gov.br e go.gov.br, login gov.br, assinatura eletrônica, pagamentos, notificações e padrão de design.</p><p class="who">Sead / Secti · Equipe técnica · Sistemas financeiros · Comunicação · Design ou UX</p></div><div class="block-n"><b>11</b>perguntas · 9 a 19</div></div>
+      <div class="block"><div class="block-letter">C</div><div><h3>Em quanto tempo um novo serviço chega ao cidadão</h3><p>Etapas, prazos e equipe necessários para publicar um serviço novo.</p><p class="who">Sead / Governo digital · Equipe técnica · Sead / Secti</p></div><div class="block-n"><b>5</b>perguntas · 20 a 24</div></div>
+      <div class="block"><div class="block-letter">D</div><div><h3>Informações que o Estado já possui</h3><p>Governança e compartilhamento de dados, Conecta gov.br, DPO, qualidade de dados, CPF/CNPJ e endereços.</p><p class="who">Secti / Governança de dados · Jurídico · DPO · Equipe de dados · Geoprocessamento · Transparência</p></div><div class="block-n"><b>14</b>perguntas · 25 a 38</div></div>
+      <div class="block"><div class="block-letter">E</div><div><h3>Sistemas por trás dos serviços</h3><p>Sistemas de maior volume, fornecedores, contratos, APIs e sistemas que não podem ser alterados.</p><p class="who">Secti / Equipe técnica · Compras · Equipe técnica · Secti / Sead</p></div><div class="block-n"><b>6</b>perguntas · 39 a 44</div></div>
+      <div class="block"><div class="block-letter">F</div><div><h3>Goiânia e serviços municipais</h3><p>Relação Estado–município, centros de operação, relato e acompanhamento de problemas urbanos.</p><p class="who">Gabinete do Governador / Sead · Operações e atendimento de Goiânia · Liderança de Goiânia · Jurídico</p></div><div class="block-n"><b>8</b>perguntas · 45 a 52</div></div>
+      <div class="block"><div class="block-letter">G</div><div><h3>Infraestrutura e formas de trabalho</h3><p>Data center e nuvem, requisitos de armazenamento, disponibilidade, operação e transferência de conhecimento.</p><p class="who">Secti / Infraestrutura · Jurídico · Sead / Secti · Sead / Compras</p></div><div class="block-n"><b>5</b>perguntas · 53 a 57</div></div>
+      <div class="block"><div class="block-letter">H</div><div><h3>Prioridades e medição de sucesso</h3><p>Jornadas prioritárias, critérios de sucesso, métrica principal, satisfação, financiamento e cronograma.</p><p class="who">Gabinete do Governador · Sead · Ouvidoria · Planejamento / Finanças</p></div><div class="block-n"><b>7</b>perguntas · 58 a 64</div></div>
+    </div>
+    <p class="quote-inline" style="color:var(--ink)">Se puder escolher por onde começar: as perguntas 58 a 60, sobre jornadas prioritárias e sucesso, orientam a ordem de tudo o mais.</p>
+  </div>
+</section>
+
+<!-- CUIDADOS -->
+<section class="section bg-ink" id="cuidados">
+  <div class="container">
+    <p class="kicker">Cuidados</p>
+    <h2 class="h2">Informações sensíveis e confiabilidade</h2>
+    <p class="lead">O questionário trata de processos, sistemas e dados em nível agregado. Não é preciso (nem desejável) enviar dados de pessoas.</p>
+    <div class="chip-row">
+      <span class="chip">Sem dados pessoais de cidadãos</span>
+      <span class="chip">Sem senhas ou chaves de acesso</span>
+      <span class="chip">Sem credenciais de sistemas</span>
+      <span class="chip">Documentos sigilosos: apenas citar o nome</span>
+      <span class="chip">Números agregados, não individuais</span>
+    </div>
+    <div class="stamp-row">
+      <div class="stamp stamp-ok">✓<span>RESPONDIDA</span></div>
+      <div class="stamp stamp-warn">≈<span>PARCIAL / ESTIMADA</span></div>
+      <div class="stamp stamp-no">?<span>NÃO SEI</span></div>
+    </div>
+    <p class="stamp-help">Qualquer um dos três estados é aceito. O importante é que fique claro qual deles se aplica: marque no campo “Situação” de cada pergunta.</p>
+    <p class="quote-inline">Saber cedo o que ainda não se sabe evita surpresas no meio do projeto.</p>
+  </div>
+</section>
+
+<!-- AO CONCLUIR -->
+<section class="section bg-paper" id="envio">
+  <div class="container">
+    <p class="kicker">Ao encerrar</p>
+    <h2 class="h2">Antes de encerrar</h2>
+    <div class="timeline">
+      <div class="timeline-step"><div class="timeline-num">1</div><div class="timeline-body"><h3>Confira o progresso</h3><p>O contador no topo mostra quantas perguntas foram respondidas. Use o filtro “Pendentes” para ver o que falta.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">2</div><div class="timeline-body"><h3>Verifique os documentos citados</h3><p>Nomes, datas e links devem permitir que outra pessoa encontre o documento.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">3</div><div class="timeline-body"><h3>Revise dados sensíveis</h3><p>Confirme que não há dados pessoais, senhas ou informações sigilosas nos campos.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">4</div><div class="timeline-body"><h3>Baixe uma cópia, se quiser</h3><p>O botão “Exportar XLSX” gera uma planilha com as respostas do seu órgão, para o seu registro.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">5</div><div class="timeline-body"><h3>Não é preciso enviar nada</h3><p>As respostas já ficam salvas automaticamente e visíveis para o programa. Dúvidas sobre uma pergunta devem ser dirigidas ao ponto de contato do programa.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="section bg-ink final">
+  <div class="container">
+    <p class="kicker">Governo de Goiás · Diagnóstico de Serviços Digitais</p>
+    <h2 class="final-h2">Responder bem agora é planejar melhor depois.</h2>
+    <p class="final-quote">As respostas orientam o que o programa propõe, em que ordem e com que prazos. Quanto mais fiel for o retrato de hoje, mais realista será o plano.</p>
+    <div class="final-stamp">
+      <p class="final-memorable">Parcial é bem-vindo. Preciso é melhor.</p>
+      <p style="margin-top:28px"><a class="cta" href="#/responder">Escolher meu órgão e responder →</a></p>
+    </div>
+  </div>
+</footer>
+</div>
+
+<footer class="foot" id="foot"><div class="wrap">Governo de Goiás · Diagnóstico de Serviços Digitais · As respostas são salvas automaticamente. Não insira dados pessoais de cidadãos, senhas ou informações sigilosas.</div></footer>
 
 <script>
 const SUPABASE_URL = 'https://ohjthzjlkagvzkaceitp.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_0eyOz_zDUdd6CvWwRkLLIg_VYEeKdJS';
 
 const STATUS = { respondida: 'Respondida', parcial: 'Parcial ou estimada', nao_sei: 'Não sei / encaminhar' };
-const ORGAO_NOMES = {
-  'sead': 'Sead', 'secti': 'Secti', 'gabinete': 'Gabinete do Governador',
-  'goiania': 'Prefeitura de Goiânia', 'planejamento-financas': 'Planejamento e Finanças', 'ouvidoria': 'Ouvidoria'
-};
-const $app = document.getElementById('app');
-const params = new URLSearchParams(location.search);
+const $view = document.getElementById('view');
+const $guia = document.getElementById('v-guia');
 let QUESTIONS = [];
+const STATE = { orgaos: [], ans: {} };
 
+/* ---------- utilitários ---------- */
 function el(tag, attrs, ...kids) {
   const e = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs || {})) {
     if (k === 'class') e.className = v;
     else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
-    else if (k === 'html') e.innerHTML = v;
     else e.setAttribute(k, v);
   }
   for (const kid of kids.flat()) if (kid != null) e.append(kid.nodeType ? kid : document.createTextNode(kid));
   return e;
 }
-function toast(msg) {
-  const t = el('div', { class: 'toast' }, msg);
-  document.body.append(t); setTimeout(() => t.remove(), 5000);
-}
+function toast(msg) { const t = el('div', { class: 'toast' }, msg); document.body.append(t); setTimeout(() => t.remove(), 5000); }
 async function rpc(fn, body) {
   const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, {
-    method: 'POST',
-    headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+    method: 'POST', headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' }, body: JSON.stringify(body || {})
   });
-  if (!r.ok) throw new Error(`Falha ${r.status}`);
+  if (!r.ok) throw new Error('Falha ' + r.status);
   return r.json();
 }
 const fmtDate = s => s ? new Date(s).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) : '';
-const isAnswered = a => a && (a.resposta || '').trim().length > 0;
+const isAnswered = a => !!(a && (a.resposta || '').trim());
+const orgById = slug => STATE.orgaos.find(o => o.slug === slug);
+const qsFor = slug => QUESTIONS.filter(q => q.orgaos.includes(slug));
+const doneFor = slug => qsFor(slug).filter(q => isAnswered((STATE.ans[slug] || {})[q.n])).length;
+const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
+const bar = (done, total, cls) => el('div', { class: 'bar ' + (cls || '') }, el('i', { style: `width:${pct(done, total)}%` }));
+const BLOCOS = () => [...new Map(QUESTIONS.map(q => [q.bloco, q.tema]))];
 
-/* ---------- GUIA ---------- */
-function guideView() {
-  const root = el('div');
-  root.append(
-    el('p', { class: 'kicker' }, 'Para que serve'),
-    el('h2', { class: 'h2' }, 'Confirmar a situação atual para acordar o escopo do programa'),
-    el('p', { class: 'lead' }, 'As perguntas tratam de serviços, canais, dados, sistemas, infraestrutura e prioridades. As respostas permitem propor o que é realista para Goiás, sem partir de suposições. Não há resposta certa ou errada: o que importa é o cenário de hoje.'),
-    el('p', { class: 'kicker' }, 'Passo a passo'),
-    el('div', { class: 'steps' },
-      step(1, 'Abra a aba “Perguntas”', 'Aqui aparecem apenas as perguntas que a sua área está mais bem posicionada para responder.'),
-      step(2, 'Leia a pergunta e o “por que isso ajuda”', 'A justificativa mostra o uso da resposta e ajuda a calibrar o detalhe.'),
-      step(3, 'Escreva a resposta', 'Seja direto. Números, datas e nomes de sistemas valem mais que descrições gerais.'),
-      step(4, 'Indique o documento de apoio', 'Cite nome, data e, se houver, link do documento que sustenta a resposta.'),
-      step(5, 'Marque a situação da resposta', 'Respondida, parcial ou estimada, ou “não sei / encaminhar” — e diga quem poderia responder.'),
-      step(6, 'Acompanhe o progresso', 'Tudo é salvo automaticamente. Você pode voltar depois e continuar de onde parou.')
-    ),
-    el('div', { class: 'dd-grid' },
-      el('div', { class: 'dd do' }, el('h3', {}, 'Faça'), el('ul', {},
-        li('Responda mesmo parcialmente.', ' Meia resposta hoje vale mais que a resposta perfeita adiada.'),
-        li('Responda cada parte', ' das perguntas compostas.'),
-        li('Marque estimativas', ' como estimativas: “cerca de”, “dado de 2025”.'),
-        li('Dê números e datas', ' quando existirem: volumes, prazos, vigência de contratos.'),
-        li('Escreva “não sei”', ' quando for o caso e indique quem pode saber.'))),
-      el('div', { class: 'dd dont' }, el('h3', {}, 'Evite'), el('ul', {},
-        li('Não responda pelo que gostaria que fosse.', ' Queremos o cenário real.'),
-        li('Não insira dados pessoais', ' de cidadãos, senhas ou chaves de acesso.'),
-        li('Não use siglas internas', ' sem explicar.'),
-        li('Não cole documentos sigilosos.', ' Cite apenas o nome e a data.'),
-        li('Não deixe em branco sem explicar.', ' “Não se aplica” já é resposta.')))
-    ),
-    el('p', { class: 'kicker' }, 'Exemplo de boa resposta'),
-    el('div', { class: 'example' },
-      el('div', { class: 're' }, el('span', { class: 'tag' }, 'Pergunta'), el('p', {}, 'Quantos serviços Goiás oferece no total e quantos podem ser realizados de ponta a ponta?')),
-      el('div', { class: 're fill' }, el('span', { class: 'tag' }, 'Resposta'), el('p', {}, 'Cerca de 130 publicados; aproximadamente 110 podem ser concluídos sem ida a um posto.')),
-      el('div', { class: 're fill' }, el('span', { class: 'tag' }, 'Documento de apoio'), el('p', {}, 'Lista de serviços do Expresso, ago/2026'))),
-    el('p', { class: 'quote' }, 'Um número, uma estimativa assumida como tal e a fonte. Isso já basta.'),
-    el('p', { style: 'margin-bottom:34px' }, el('a', { class: 'btn btn-link', href: 'orientacoes.html', target: '_blank', rel: 'noopener' }, 'Abrir o guia completo de preenchimento')),
-    el('p', { class: 'kicker' }, 'Ao concluir'),
-    el('p', { class: 'lead' }, 'Use o botão “Exportar XLSX” no topo para baixar uma cópia das suas respostas. As respostas já ficam registradas automaticamente; a planilha serve para guardar o seu próprio registro.')
-  );
-  return root;
+async function loadPainel() {
+  const lista = await rpc('listar_orgaos');
+  const dados = await Promise.all(lista.map(o => rpc('org_get', { p_token: o.token })));
+  STATE.orgaos = lista.map(o => ({ slug: o.slug, nome: o.nome, token: o.token })); STATE.ans = {};
+  dados.forEach((d, i) => { if (d) STATE.ans[lista[i].slug] = Object.fromEntries(d.respostas.map(r => [r.pergunta, { ...r, orgao: lista[i].slug }])); });
+}
+function pageHead(kicker, title, sub, extra) {
+  return el('header', { class: 'top' }, el('div', { class: 'wrap' },
+    el('p', { class: 'org-line' }, 'Governo de Goiás'),
+    el('p', { class: 'sub-line' }, kicker),
+    el('h1', {}, title),
+    sub ? el('p', { class: 'who-name' }, sub) : null,
+    extra || el('div', { class: 'pad-b' })));
+}
+function fail(msg) {
+  $view.replaceChildren(pageHead('Diagnóstico de Serviços Digitais', 'Não foi possível continuar'),
+    el('main', {}, el('div', { class: 'wrap' }, el('div', { class: 'box' }, el('p', { class: 'lead', style: 'margin:0' }, msg)))));
+}
+function xlsxRows(items) { // items: [{q, slug, a}]
+  return items.map(({ q, slug, a }) => ({
+    '#': q.n, 'Tema': `${q.bloco}. ${q.tema}`, 'Pergunta': q.pergunta, 'Órgão': (orgById(slug) || {}).nome || slug,
+    'Resposta': (a && a.resposta) || '', 'Situação': isAnswered(a) ? STATUS[a.status] || '' : 'Pendente',
+    'Documento de apoio': (a && a.documento) || '', 'Atualizado em': fmtDate(a && a.updated_at)
+  }));
+}
+const COLS = [{ wch: 5 }, { wch: 30 }, { wch: 70 }, { wch: 34 }, { wch: 60 }, { wch: 20 }, { wch: 30 }, { wch: 18 }];
+const today = () => new Date().toISOString().slice(0, 10);
+
+/* ---------- início ---------- */
+function homeView() {
+  const pairs = STATE.orgaos.reduce((s, o) => s + qsFor(o.slug).length, 0);
+  const done = STATE.orgaos.reduce((s, o) => s + doneFor(o.slug), 0);
+  const card = (n, h, p, go, href) => el('a', { class: 'action-card', href }, el('span', { class: 'n' }, n), el('h3', {}, h), el('p', {}, p), el('span', { class: 'go' }, go + ' →'));
+  return [
+    el('header', { class: 'top' }, el('div', { class: 'wrap' },
+      el('p', { class: 'org-line' }, 'Governo de Goiás'),
+      el('p', { class: 'sub-line' }, 'Programa de transformação de serviços digitais'),
+      el('h1', {}, 'Diagnóstico de Serviços Digitais'),
+      el('p', { class: 'who-name' }, 'Antes de propor, confirmar a situação atual. Respostas parciais são bem-vindas.'),
+      el('div', { class: 'hero-actions' },
+        el('a', { class: 'btn', href: '#/responder' }, 'Escolher meu órgão e responder'),
+        el('a', { class: 'btn ghost', href: '#/orientacoes' }, 'Ler as orientações')),
+      el('div', { class: 'stat-row' },
+        el('div', { class: 'stat' }, el('b', {}, QUESTIONS.length), el('span', {}, 'perguntas')),
+        el('div', { class: 'stat' }, el('b', {}, BLOCOS().length), el('span', {}, 'blocos temáticos')),
+        el('div', { class: 'stat' }, el('b', {}, STATE.orgaos.length), el('span', {}, 'órgãos participantes')),
+        el('div', { class: 'stat' }, el('b', {}, pct(done, pairs) + '%'), el('span', {}, `respondido (${done} de ${pairs})`))))),
+    el('main', {}, el('div', { class: 'wrap' },
+      el('p', { class: 'kicker' }, 'Por onde começar'),
+      el('div', { class: 'action-grid' },
+        card('1', 'Leia as orientações', 'Entenda para que serve o questionário, como responder bem e quais cuidados tomar.', 'Abrir orientações', '#/orientacoes'),
+        card('2', 'Responda pelo seu órgão', 'Cada órgão vê as perguntas que está mais bem posicionado para responder. Tudo é salvo automaticamente.', 'Escolher órgão', '#/responder'),
+        card('3', 'Acompanhe o andamento', 'Veja o progresso por órgão e por bloco, e baixe o consolidado em XLSX.', 'Ver andamento', '#/andamento')),
+      el('p', { class: 'kicker' }, 'Como funciona'),
+      el('div', { class: 'steps' },
+        step(1, 'Abra o seu órgão', 'Na aba “Responder”, clique no botão do seu órgão.'),
+        step(2, 'Responda e indique o documento de apoio', 'Escreva a resposta, marque a situação e, se houver, cite o documento. O salvamento é automático.'),
+        step(3, 'Veja o que os outros órgãos responderam', 'Na aba “Respostas”, todos os órgãos podem consultar o que já foi registrado.')),
+      el('p', { class: 'quote' }, 'Não há resposta certa ou errada: o que existe hoje, como existe, é o que precisamos saber.')))
+  ];
   function step(n, h, p) { return el('div', { class: 'step' }, el('div', { class: 'n' }, n), el('div', {}, el('h3', {}, h), el('p', {}, p))); }
-  function li(b, rest) { return el('li', {}, el('b', {}, b), rest); }
 }
 
-/* ---------- ÓRGÃO ---------- */
-async function orgView(token) {
-  let data;
-  try { data = await rpc('org_get', { p_token: token }); }
-  catch (e) { return fail('Não foi possível carregar. Verifique a conexão e tente novamente.'); }
-  if (!data) return fail('Link inválido ou expirado. Peça um novo link ao responsável pelo programa.');
+/* ---------- responder (lista de órgãos) ---------- */
+function responderView() {
+  return [pageHead('Responder', 'Escolha o seu órgão', 'Clique no botão do seu órgão para abrir as perguntas dele.'),
+    el('main', {}, el('div', { class: 'wrap' },
+      el('p', { class: 'lead' }, 'As respostas são salvas automaticamente e ficam visíveis para todos os órgãos participantes. Você pode voltar depois para continuar de onde parou.'),
+      el('div', { class: 'org-grid' }, STATE.orgaos.map(o => {
+        const total = qsFor(o.slug).length, done = doneFor(o.slug);
+        return el('div', { class: 'org-card' },
+          el('h3', {}, o.nome), el('p', { class: 'org-meta' }, `${total} perguntas para este órgão`),
+          el('div', { class: 'progress-text dark' }, el('b', {}, `${done} de ${total}`), ' respondidas'), bar(done, total, 'light'),
+          el('a', { class: 'btn btn-link', href: '#/orgao/' + o.slug }, done ? 'Continuar respondendo' : 'Responder'));
+      })),
+      el('p', { class: 'quote' }, 'Primeira vez aqui? Leia antes as ', el('a', { href: '#/orientacoes' }, 'orientações de preenchimento'), '.')))];
+}
 
-  const org = data.slug;
-  const mine = QUESTIONS.filter(q => q.orgaos.includes(org));
-  const answers = {};
-  data.respostas.forEach(a => answers[a.pergunta] = a);
-  const pending = {};          // pergunta -> timer
-  const lines = {};            // pergunta -> save-line element
-  const cards = {};
+/* ---------- órgão ---------- */
+function orgView(slug, focusN) {
+  const org = orgById(slug);
+  if (!org) return fail('Órgão não encontrado.');
+  const token = org.token, mine = qsFor(slug);
+  const answers = STATE.ans[slug] = STATE.ans[slug] || {};
+  const pending = {}, lines = {}, cards = {};
+  let filter = 'todas', blk = 'todos';
 
-  const barFill = el('i');
-  const progText = el('div', { class: 'progress-text' });
+  const barFill = el('i'), progText = el('div', { class: 'progress-text' });
   function updateProgress() {
     const done = mine.filter(q => isAnswered(answers[q.n])).length;
     progText.replaceChildren(el('b', {}, `${done} de ${mine.length}`), ' perguntas respondidas');
-    barFill.style.width = (mine.length ? done / mine.length * 100 : 0) + '%';
+    barFill.style.width = pct(done, mine.length) + '%';
     mine.forEach(q => cards[q.n] && cards[q.n].classList.toggle('done', isAnswered(answers[q.n])));
   }
+  const list = el('div');
+  const blocksHere = [...new Map(mine.map(q => [q.bloco, q.tema]))];
 
-  const guide = el('div', { id: 'tab-guia' }, guideView());
-  const qview = el('div', { id: 'tab-perguntas', hidden: '' });
-  let filter = 'todas';
-
-  function renderQuestions() {
-    qview.replaceChildren();
-    const chips = el('div', { class: 'filters' });
-    [['todas', 'Todas'], ['pendentes', 'Pendentes'], ['respondidas', 'Respondidas']].forEach(([k, t]) =>
-      chips.append(el('button', { class: 'chip' + (filter === k ? ' on' : ''), onclick: () => { filter = k; renderQuestions(); } }, t)));
-    qview.append(chips);
-    let last = '';
-    const list = mine.filter(q => filter === 'todas' || (filter === 'pendentes') === !isAnswered(answers[q.n]));
-    if (!list.length) qview.append(el('p', { class: 'lead' }, 'Nenhuma pergunta neste filtro.'));
-    list.forEach(q => {
-      if (q.bloco !== last) {
-        last = q.bloco;
-        qview.append(el('div', { class: 'block-head' }, el('span', { class: 'l' }, q.bloco), el('h2', {}, q.tema)));
-      }
-      qview.append(questionCard(q));
+  function renderList() {
+    list.replaceChildren(); let last = '';
+    const items = mine.filter(q => (blk === 'todos' || q.bloco === blk) &&
+      (filter === 'todas' || (filter === 'pendentes') === !isAnswered(answers[q.n])));
+    if (!items.length) list.append(el('div', { class: 'empty' }, 'Nenhuma pergunta neste filtro.'));
+    items.forEach(q => {
+      if (q.bloco !== last) { last = q.bloco; list.append(el('div', { class: 'block-head' }, el('span', { class: 'l' }, q.bloco), el('h2', {}, q.tema))); }
+      list.append(card(q));
     });
     updateProgress();
   }
-
-  function questionCard(q) {
+  function card(q) {
     const a = answers[q.n] || { resposta: '', documento: '', status: 'respondida' };
     const ta = el('textarea', { id: 'r' + q.n, placeholder: 'Escreva aqui a sua resposta…' }); ta.value = a.resposta;
     const doc = el('input', { type: 'text', id: 'd' + q.n, placeholder: 'Nome, data ou link do documento' }); doc.value = a.documento;
-    const sel = el('select', { id: 's' + q.n }, ...Object.entries(STATUS).map(([v, t]) => el('option', { value: v }, t)));
-    sel.value = a.status || 'respondida';
-    const line = el('div', { class: 'save-line' }, a.updated_at ? 'Salvo em ' + fmtDate(a.updated_at) : '');
-    lines[q.n] = line;
+    const sel = el('select', { id: 's' + q.n }, ...Object.entries(STATUS).map(([v, t]) => el('option', { value: v }, t))); sel.value = a.status || 'respondida';
+    const line = el('div', { class: 'save-line' }, a.updated_at ? 'Salvo em ' + fmtDate(a.updated_at) : ''); lines[q.n] = line;
     const queue = () => {
-      answers[q.n] = { ...answers[q.n], pergunta: q.n, resposta: ta.value, documento: doc.value, status: sel.value };
+      answers[q.n] = { ...answers[q.n], orgao: slug, pergunta: q.n, resposta: ta.value, documento: doc.value, status: sel.value };
       line.className = 'save-line'; line.textContent = 'Salvando…';
-      clearTimeout(pending[q.n]);
-      pending[q.n] = setTimeout(() => save(q.n), 900);
-      updateProgress();
+      clearTimeout(pending[q.n]); pending[q.n] = setTimeout(() => save(q.n), 900); updateProgress();
     };
-    [ta, doc].forEach(x => x.addEventListener('input', queue));
-    sel.addEventListener('change', queue);
-    const others = q.orgaos.filter(o => o !== org).map(o => ORGAO_NOMES[o]);
-    const card = el('div', { class: 'q' },
+    [ta, doc].forEach(x => x.addEventListener('input', queue)); sel.addEventListener('change', queue);
+    const others = q.orgaos.filter(o => o !== slug).map(o => (orgById(o) || {}).nome || o);
+    const c = el('div', { class: 'q', id: 'q' + q.n },
       el('div', { class: 'q-top' }, el('span', { class: 'q-n' }, q.n), el('p', { class: 'q-text' }, q.pergunta)),
       el('p', { class: 'q-why' }, q.porque),
       others.length ? el('p', { class: 'q-also' }, 'Também respondida por: ' + others.join(', ')) : null,
@@ -287,12 +583,9 @@ async function orgView(token) {
         el('div', {}, el('label', { for: 'r' + q.n }, 'Resposta'), ta),
         el('div', { class: 'row2' },
           el('div', {}, el('label', { for: 'd' + q.n }, 'Documento de apoio'), doc),
-          el('div', {}, el('label', { for: 's' + q.n }, 'Situação'), sel))),
-      line);
-    cards[q.n] = card;
-    return card;
+          el('div', {}, el('label', { for: 's' + q.n }, 'Situação'), sel))), line);
+    cards[q.n] = c; return c;
   }
-
   async function save(n) {
     const a = answers[n], line = lines[n];
     try {
@@ -304,152 +597,158 @@ async function orgView(token) {
       pending[n] = setTimeout(() => save(n), 5000);
     }
   }
-  window.addEventListener('beforeunload', e => {
-    if (Object.values(lines).some(l => l.textContent === 'Salvando…' || l.classList.contains('err'))) { e.preventDefault(); e.returnValue = ''; }
-  });
+  window.onbeforeunload = () => Object.values(lines).some(l => l.textContent === 'Salvando…' || l.classList.contains('err')) ? 'Há respostas sendo salvas.' : null;
 
   function exportXlsx() {
-    const rows = mine.map(q => {
-      const a = answers[q.n] || {};
-      return { '#': q.n, 'Tema': `${q.bloco}. ${q.tema}`, 'Pergunta': q.pergunta,
-        'Quem pode responder melhor': q.quem, 'Resposta': a.resposta || '', 'Situação': a.resposta ? STATUS[a.status] || '' : '',
-        'Documento de apoio': a.documento || '', 'Atualizado em': fmtDate(a.updated_at) };
-    });
-    const ws = XLSX.utils.json_to_sheet(rows);
-    ws['!cols'] = [{ wch: 5 }, { wch: 30 }, { wch: 70 }, { wch: 28 }, { wch: 60 }, { wch: 20 }, { wch: 30 }, { wch: 18 }];
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Respostas');
-    XLSX.writeFile(wb, `Diagnostico_${org}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+    const ws = XLSX.utils.json_to_sheet(xlsxRows(mine.map(q => ({ q, slug, a: answers[q.n] })))
+      .map(({ 'Órgão': _, ...r }) => r));
+    ws['!cols'] = COLS.filter((_, i) => i !== 3);
+    const wb = XLSX.utils.book_new(); XLSX.utils.book_append_sheet(wb, ws, 'Respostas');
+    XLSX.writeFile(wb, `Diagnostico_${slug}_${today()}.xlsx`);
   }
 
-  const tabG = el('button', { class: 'tab on', onclick: () => show('guia') }, 'Orientações');
-  const tabQ = el('button', { class: 'tab', onclick: () => show('perguntas') }, `Perguntas (${mine.length})`);
-  function show(w) {
-    guide.hidden = w !== 'guia'; qview.hidden = w !== 'perguntas';
-    tabG.classList.toggle('on', w === 'guia'); tabQ.classList.toggle('on', w === 'perguntas');
-    window.scrollTo({ top: 0 });
+  const chips = el('div', { class: 'toolbar' });
+  function renderChips() {
+    chips.replaceChildren();
+    [['todas', 'Todas'], ['pendentes', 'Pendentes'], ['respondidas', 'Respondidas']].forEach(([k, t]) =>
+      chips.append(el('button', { class: 'chip' + (filter === k ? ' on' : ''), onclick: () => { filter = k; renderChips(); renderList(); } }, t)));
+    const bsel = el('select', { 'aria-label': 'Filtrar por bloco' }, el('option', { value: 'todos' }, 'Todos os blocos'),
+      ...blocksHere.map(([b, t]) => el('option', { value: b }, `${b}. ${t}`)));
+    bsel.value = blk; bsel.addEventListener('change', () => { blk = bsel.value; renderList(); });
+    chips.append(el('span', { class: 'grow' }), bsel);
   }
+  renderChips(); renderList();
 
-  $app.append(
-    el('header', { class: 'top' }, el('div', { class: 'wrap' },
-      el('p', { class: 'org-line' }, 'Governo de Goiás'),
-      el('p', { class: 'sub-line' }, 'Diagnóstico de Serviços Digitais'),
-      el('h1', {}, 'Questionário de diagnóstico'),
-      el('p', { class: 'who-name' }, data.nome),
-      el('div', { class: 'progress-row' },
-        el('div', { class: 'progress-box' }, progText, el('div', { class: 'bar' }, barFill)),
-        el('a', { class: 'btn ghost btn-link', href: location.pathname, style: 'margin-top:0' }, '← Trocar de órgão'),
-        el('button', { class: 'btn', onclick: exportXlsx }, 'Exportar XLSX')),
-      el('div', { class: 'tabs' }, tabG, tabQ))),
-    el('main', {}, el('div', { class: 'wrap' }, guide, qview)),
-    el('footer', { class: 'foot' }, el('div', { class: 'wrap' }, 'As respostas são salvas automaticamente. Não insira dados pessoais de cidadãos, senhas ou informações sigilosas.'))
-  );
-  renderQuestions();
-  if (mine.some(q => isAnswered(answers[q.n]))) show('perguntas');
-}
+  const swap = el('select', { 'aria-label': 'Trocar de órgão', style: 'max-width:300px;background:var(--ink-2);color:var(--paper-soft);border-color:var(--line-on-ink)' },
+    ...STATE.orgaos.map(o => el('option', { value: o.slug }, o.nome)));
+  swap.value = slug; swap.addEventListener('change', () => { location.hash = '#/orgao/' + swap.value; });
 
-/* ---------- ADMIN ---------- */
-async function adminView(token) {
-  let data;
-  try { data = await rpc('admin_get', { p_token: token }); }
-  catch (e) { return fail('Não foi possível carregar.'); }
-  if (!data) return fail('Link de administração inválido.');
-  const byOrg = {};
-  data.respostas.forEach(r => (byOrg[r.orgao] = byOrg[r.orgao] || {})[r.pergunta] = r);
-
-  const rows = data.orgaos.map(o => {
-    const qs = QUESTIONS.filter(q => q.orgaos.includes(o.slug));
-    const done = qs.filter(q => isAnswered((byOrg[o.slug] || {})[q.n])).length;
-    return { o, total: qs.length, done };
-  });
-  const tot = rows.reduce((s, r) => s + r.total, 0), dn = rows.reduce((s, r) => s + r.done, 0);
-
-  function exportAll() {
-    const wb = XLSX.utils.book_new();
-    const all = [];
-    QUESTIONS.forEach(q => q.orgaos.forEach(slug => {
-      const a = (byOrg[slug] || {})[q.n] || {};
-      const o = data.orgaos.find(x => x.slug === slug);
-      all.push({ '#': q.n, 'Tema': `${q.bloco}. ${q.tema}`, 'Pergunta': q.pergunta, 'Órgão': o ? o.nome : slug,
-        'Resposta': a.resposta || '', 'Situação': a.resposta ? STATUS[a.status] || '' : 'Pendente',
-        'Documento de apoio': a.documento || '', 'Atualizado em': fmtDate(a.updated_at) });
-    }));
-    const cols = [{ wch: 5 }, { wch: 30 }, { wch: 70 }, { wch: 34 }, { wch: 60 }, { wch: 20 }, { wch: 30 }, { wch: 18 }];
-    const ws = XLSX.utils.json_to_sheet(all); ws['!cols'] = cols;
-    XLSX.utils.book_append_sheet(wb, ws, 'Consolidado');
-    data.orgaos.forEach(o => {
-      const rs = all.filter(r => r['Órgão'] === o.nome).map(({ 'Órgão': _, ...rest }) => rest);
-      const w = XLSX.utils.json_to_sheet(rs); w['!cols'] = cols.filter((_, i) => i !== 3);
-      XLSX.utils.book_append_sheet(wb, w, o.slug.slice(0, 31));
-    });
-    XLSX.writeFile(wb, `Diagnostico_Consolidado_${new Date().toISOString().slice(0, 10)}.xlsx`);
-  }
-
-  $app.append(
-    el('header', { class: 'top' }, el('div', { class: 'wrap' },
-      el('p', { class: 'org-line' }, 'Governo de Goiás'),
-      el('p', { class: 'sub-line' }, 'Diagnóstico de Serviços Digitais · Administração'),
-      el('h1', {}, 'Andamento por órgão'),
-      el('div', { class: 'progress-row', style: 'margin-top:18px' },
-        el('div', { class: 'progress-box' }, el('div', { class: 'progress-text' }, el('b', {}, `${dn} de ${tot}`), ' respostas registradas'),
-          el('div', { class: 'bar' }, el('i', { style: `width:${tot ? dn / tot * 100 : 0}%` }))),
-        el('button', { class: 'btn', onclick: exportAll }, 'Exportar consolidado XLSX')))),
+  const out = [
+    pageHead('Responder', 'Questionário de diagnóstico', org.nome, el('div', { class: 'progress-row' },
+      el('div', { class: 'progress-box' }, progText, el('div', { class: 'bar' }, barFill)),
+      swap, el('button', { class: 'btn', onclick: exportXlsx }, 'Exportar XLSX'))),
     el('main', {}, el('div', { class: 'wrap' },
-      el('table', {},
-        el('thead', {}, el('tr', {}, ...['Órgão', 'Progresso', 'Perguntas', 'Última atualização'].map(h => el('th', {}, h)))),
-        el('tbody', {}, ...rows.map(r => {
-          const ups = Object.values(byOrg[r.o.slug] || {}).map(x => x.updated_at).sort().pop();
-          return el('tr', {}, el('td', {}, r.o.nome),
-            el('td', {}, el('span', { class: 'bar' }, el('i', { style: `width:${r.total ? r.done / r.total * 100 : 0}%` })), `${r.done}/${r.total}`),
-            el('td', {}, r.total), el('td', {}, ups ? fmtDate(ups) : '—'));
-        }))))));
+      el('p', { class: 'lead', style: 'margin-bottom:22px' }, 'Tudo é salvo automaticamente. Dúvidas sobre como responder? ', el('a', { href: '#/orientacoes' }, 'Veja as orientações'), '.'),
+      chips, list))
+  ];
+  if (focusN) setTimeout(() => { const c = document.getElementById('q' + focusN); if (c) { c.scrollIntoView({ block: 'center' }); c.style.outline = '2px solid var(--seal)'; } }, 100);
+  return out;
 }
 
-/* ---------- LANDING ---------- */
-function fail(msg) {
-  $app.replaceChildren(el('header', { class: 'top' }, el('div', { class: 'wrap' }, el('p', { class: 'org-line' }, 'Governo de Goiás'),
-    el('h1', { style: 'padding-bottom:30px' }, 'Diagnóstico de Serviços Digitais'))),
-    el('main', {}, el('div', { class: 'wrap' }, el('div', { class: 'box' }, el('p', { class: 'lead', style: 'margin:0' }, msg)))));
+/* ---------- andamento ---------- */
+function andamentoView() {
+  const pairs = STATE.orgaos.reduce((s, o) => s + qsFor(o.slug).length, 0);
+  const done = STATE.orgaos.reduce((s, o) => s + doneFor(o.slug), 0);
+  function exportAll() {
+    const all = []; QUESTIONS.forEach(q => q.orgaos.forEach(slug => all.push({ q, slug, a: (STATE.ans[slug] || {})[q.n] })));
+    const wb = XLSX.utils.book_new();
+    const ws = XLSX.utils.json_to_sheet(xlsxRows(all)); ws['!cols'] = COLS; XLSX.utils.book_append_sheet(wb, ws, 'Consolidado');
+    STATE.orgaos.forEach(o => {
+      const rows = xlsxRows(all.filter(x => x.slug === o.slug)).map(({ 'Órgão': _, ...r }) => r);
+      const w = XLSX.utils.json_to_sheet(rows); w['!cols'] = COLS.filter((_, i) => i !== 3); XLSX.utils.book_append_sheet(wb, w, o.slug.slice(0, 31));
+    });
+    XLSX.writeFile(wb, `Diagnostico_Consolidado_${today()}.xlsx`);
+  }
+  const orgRows = STATE.orgaos.map(o => {
+    const total = qsFor(o.slug).length, d = doneFor(o.slug);
+    const ups = Object.values(STATE.ans[o.slug] || {}).map(x => x.updated_at).sort().pop();
+    return el('tr', {}, el('td', {}, o.nome), el('td', {}, el('span', { class: 'bar' }, el('i', { style: `width:${pct(d, total)}%` })), `${d}/${total}`),
+      el('td', {}, ups ? fmtDate(ups) : '—'), el('td', {}, el('a', { href: '#/orgao/' + o.slug }, 'Abrir')));
+  });
+  const blkRows = BLOCOS().map(([b, t]) => {
+    let total = 0, d = 0;
+    QUESTIONS.filter(q => q.bloco === b).forEach(q => q.orgaos.forEach(slug => { total++; if (isAnswered((STATE.ans[slug] || {})[q.n])) d++; }));
+    return el('tr', {}, el('td', {}, `${b}. ${t}`), el('td', {}, el('span', { class: 'bar' }, el('i', { style: `width:${pct(d, total)}%` })), `${d}/${total}`), el('td', {}, pct(d, total) + '%'));
+  });
+  return [
+    pageHead('Andamento', 'Andamento do diagnóstico', null, el('div', { class: 'progress-row' },
+      el('div', { class: 'progress-box' }, el('div', { class: 'progress-text' }, el('b', {}, `${done} de ${pairs}`), ' respostas registradas'), el('div', { class: 'bar' }, el('i', { style: `width:${pct(done, pairs)}%` }))),
+      el('button', { class: 'btn', onclick: exportAll }, 'Exportar consolidado XLSX'))),
+    el('main', {}, el('div', { class: 'wrap' },
+      el('p', { class: 'kicker' }, 'Por órgão'),
+      el('table', {}, el('thead', {}, el('tr', {}, ...['Órgão', 'Progresso', 'Última atualização', ''].map(h => el('th', {}, h)))), el('tbody', {}, ...orgRows)),
+      el('p', { class: 'kicker' }, 'Por bloco temático'),
+      el('table', {}, el('thead', {}, el('tr', {}, ...['Bloco', 'Progresso', '%'].map(h => el('th', {}, h)))), el('tbody', {}, ...blkRows)),
+      el('p', { class: 'lead' }, 'Cada pergunta compartilhada entre dois órgãos conta uma vez para cada órgão.')))
+  ];
+}
+
+/* ---------- respostas de todos ---------- */
+function respostasView() {
+  const f = { org: 'todos', blk: 'todos', st: 'todas', q: '', pend: false };
+  const list = el('div'), count = el('p', { class: 'lead', style: 'margin-bottom:16px' });
+  const sOrg = el('select', { 'aria-label': 'Órgão' }, el('option', { value: 'todos' }, 'Todos os órgãos'), ...STATE.orgaos.map(o => el('option', { value: o.slug }, o.nome)));
+  const sBlk = el('select', { 'aria-label': 'Bloco' }, el('option', { value: 'todos' }, 'Todos os blocos'), ...BLOCOS().map(([b, t]) => el('option', { value: b }, `${b}. ${t}`)));
+  const sSt = el('select', { 'aria-label': 'Situação' }, el('option', { value: 'todas' }, 'Todas as situações'), ...Object.entries(STATUS).map(([v, t]) => el('option', { value: v }, t)));
+  const sQ = el('input', { type: 'search', placeholder: 'Buscar no texto…', 'aria-label': 'Buscar' });
+  const cb = el('input', { type: 'checkbox', id: 'cbp', style: 'width:auto;margin-right:6px' });
+  [[sOrg, 'org'], [sBlk, 'blk'], [sSt, 'st']].forEach(([s, k]) => s.addEventListener('change', () => { f[k] = s.value; render(); }));
+  sQ.addEventListener('input', () => { f.q = sQ.value.toLowerCase(); render(); });
+  cb.addEventListener('change', () => { f.pend = cb.checked; render(); });
+  function render() {
+    list.replaceChildren(); let n = 0;
+    QUESTIONS.forEach(q => q.orgaos.forEach(slug => {
+      const a = (STATE.ans[slug] || {})[q.n], ok = isAnswered(a);
+      if (f.org !== 'todos' && slug !== f.org) return;
+      if (f.blk !== 'todos' && q.bloco !== f.blk) return;
+      if (!ok && !f.pend) return;
+      if (f.st !== 'todas' && (!ok || a.status !== f.st)) return;
+      if (f.q && !(`${q.pergunta} ${(a && a.resposta) || ''} ${(a && a.documento) || ''}`.toLowerCase().includes(f.q))) return;
+      n++;
+      list.append(el('div', { class: 'ans' },
+        el('div', { class: 'ans-top' }, el('span', { class: 'badge org' }, (orgById(slug) || {}).nome || slug), el('span', { class: 'badge' }, `Pergunta ${q.n} · Bloco ${q.bloco}`),
+          ok ? el('span', { class: 'badge ' + a.status }, STATUS[a.status]) : el('span', { class: 'badge' }, 'Pendente')),
+        el('h3', {}, q.pergunta),
+        ok ? el('p', { class: 'a' }, a.resposta) : el('p', { class: 'd' }, 'Ainda sem resposta.'),
+        ok && a.documento ? el('p', { class: 'd' }, 'Documento de apoio: ' + a.documento) : null,
+        el('div', { class: 'meta' }, ok ? 'Atualizado em ' + fmtDate(a.updated_at) : null, el('a', { href: `#/orgao/${slug}/${q.n}` }, ok ? 'Editar' : 'Responder'))));
+    }));
+    if (!n) list.append(el('div', { class: 'empty' }, f.pend ? 'Nenhum resultado para estes filtros.' : 'Nenhuma resposta registrada para estes filtros ainda.'));
+    count.textContent = `${n} ${n === 1 ? 'item' : 'itens'}`;
+  }
+  render();
+  return [pageHead('Respostas', 'Respostas de todos os órgãos', 'Consulte o que já foi registrado. Para alterar, use o link “Editar”.'),
+    el('main', {}, el('div', { class: 'wrap' },
+      el('div', { class: 'toolbar' }, sOrg, sBlk, sSt, sQ),
+      el('div', { class: 'toolbar' }, el('label', { for: 'cbp', style: 'margin:0;display:flex;align-items:center;font-size:13.5px;color:var(--ink)' }, cb, 'Mostrar também as perguntas pendentes')),
+      count, list))];
+}
+
+/* ---------- guia ---------- */
+document.getElementById('subnav').addEventListener('click', e => {
+  const b = e.target.closest('button[data-go]'); if (!b) return;
+  const t = document.getElementById(b.dataset.go);
+  if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - (document.querySelector('.topbar').offsetHeight + 56), behavior: 'smooth' });
+});
+
+function sizeBar() { document.documentElement.style.setProperty('--tb', document.querySelector('.topbar').offsetHeight + 'px'); }
+window.addEventListener('resize', sizeBar); sizeBar();
+
+/* ---------- roteador ---------- */
+async function route() {
+  window.onbeforeunload = null;
+  const [name, a1, a2] = location.hash.replace(/^#\/?/, '').split('/');
+  const r = name || 'home';
+  document.querySelectorAll('#menu a').forEach(a => a.classList.toggle('on', a.dataset.r === (r === 'orgao' ? 'responder' : r)));
+  window.scrollTo({ top: 0 });
+  if (r === 'orientacoes') { $view.replaceChildren(); $guia.hidden = false; return; }
+  $guia.hidden = true;
+  $view.replaceChildren(el('main', {}, el('div', { class: 'wrap' }, el('p', { class: 'lead' }, 'Carregando…'))));
+  try { await loadPainel(); } catch (e) { return fail('Não foi possível carregar os dados. Verifique a conexão e tente novamente.'); }
+  const views = { home: homeView, responder: responderView, andamento: andamentoView, respostas: respostasView, orgao: () => orgView(a1, a2) };
+  $view.replaceChildren(...(views[r] || homeView)());
 }
 
 (async function init() {
-  try {
-    const r = await fetch('questions.json'); QUESTIONS = await r.json();
-  } catch (e) { return fail('Não foi possível carregar as perguntas.'); }
-  const t = params.get('t'), adm = params.get('admin');
-  if (adm) return adminView(adm);
-  if (t) return orgView(t);
-  landingView();
+  try { QUESTIONS = await (await fetch('questions.json')).json(); }
+  catch (e) { return fail('Não foi possível carregar as perguntas.'); }
+  const t = new URLSearchParams(location.search).get('t');   // compatibilidade com links antigos
+  if (t) {
+    try { await loadPainel(); const o = STATE.orgaos.find(x => x.token === t); history.replaceState(null, '', location.pathname + (o ? '#/orgao/' + o.slug : '')); } catch (e) {}
+  }
+  window.addEventListener('hashchange', route);
+  route();
 })();
-
-async function landingView() {
-  let lista;
-  try { lista = await rpc('listar_orgaos', {}); }
-  catch (e) { return fail('Não foi possível carregar a lista de órgãos. Tente novamente.'); }
-  const cards = lista.map(o => {
-    const total = QUESTIONS.filter(q => q.orgaos.includes(o.slug)).length;
-    const done = Math.min(o.respondidas, total);
-    return el('div', { class: 'org-card' },
-      el('h3', {}, o.nome),
-      el('p', { class: 'org-meta' }, `${total} perguntas para este órgão`),
-      el('div', { class: 'progress-text dark' }, el('b', {}, `${done} de ${total}`), ' respondidas'),
-      el('div', { class: 'bar light' }, el('i', { style: `width:${total ? done / total * 100 : 0}%` })),
-      el('a', { class: 'btn btn-link', href: `?t=${encodeURIComponent(o.token)}` }, done ? 'Continuar respondendo' : 'Responder'));
-  });
-  $app.append(
-    el('header', { class: 'top' }, el('div', { class: 'wrap' },
-      el('p', { class: 'org-line' }, 'Governo de Goiás'),
-      el('p', { class: 'sub-line' }, 'Diagnóstico de Serviços Digitais'),
-      el('h1', { style: 'padding-bottom:12px' }, 'Questionário de diagnóstico'),
-      el('p', { class: 'who-name' }, 'Escolha o seu órgão para responder'))),
-    el('main', {}, el('div', { class: 'wrap' },
-      el('p', { class: 'lead' }, 'Clique no botão do seu órgão para abrir as perguntas dele. As respostas são salvas automaticamente e ficam visíveis para todos os órgãos participantes. Respostas parciais são bem-vindas, e você pode voltar depois para continuar.'),
-      el('p', { style: 'margin-bottom:28px' }, el('a', { class: 'btn btn-link', href: 'orientacoes.html' }, 'Ver orientações de preenchimento')),
-      el('div', { class: 'org-grid' }, cards),
-      el('p', { class: 'quote' }, 'Não insira dados pessoais de cidadãos, senhas ou informações sigilosas.'))),
-    el('footer', { class: 'foot' }, el('div', { class: 'wrap' }, 'Governo de Goiás · Diagnóstico de Serviços Digitais'))
-  );
-}
 </script>
 </body>
 </html>
