@@ -93,6 +93,7 @@
   .progress-text.dark b{color:var(--seal);}
   .bar.light{background:var(--paper-dark);margin-bottom:20px;}
   .btn-link{margin-top:auto;}
+  .org-card.geral{border-color:var(--seal);box-shadow:0 0 0 1px var(--seal) inset;background:#fff;}
 
   /* ===== perguntas ===== */
   .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px;align-items:center;}
@@ -267,7 +268,7 @@
     <p class="kicker">Passo a passo</p>
     <h2 class="h2">Cinco passos para um preenchimento completo</h2>
     <div class="timeline">
-      <div class="timeline-step"><div class="timeline-num">1</div><div class="timeline-body"><h3>Escolha o seu órgão</h3><p>Na página inicial, clique no botão do seu órgão. Abrem-se apenas as perguntas que ele está mais bem posicionado para responder.</p></div></div>
+      <div class="timeline-step"><div class="timeline-num">1</div><div class="timeline-body"><h3>Escolha o seu órgão</h3><p>Na página inicial, clique no botão do seu órgão. Abrem-se apenas as perguntas que ele está mais bem posicionado para responder. Se a sua equipe vai responder tudo em um só lugar, escolha “Todas as perguntas”.</p></div></div>
       <div class="timeline-step"><div class="timeline-num">2</div><div class="timeline-body"><h3>Leia a pergunta e o “Por que isso ajuda”</h3><p>A justificativa explica o que será feito com a resposta e ajuda a calibrar o nível de detalhe.</p></div></div>
       <div class="timeline-step"><div class="timeline-num">3</div><div class="timeline-body"><h3>Escreva a resposta no campo “Resposta”</h3><p>Seja direto. Números, datas e nomes de sistemas valem mais que descrições gerais.</p></div></div>
       <div class="timeline-step"><div class="timeline-num">4</div><div class="timeline-body"><h3>Indique o documento de apoio</h3><p>Quando existir, cite o nome e a data do documento no campo “Documento de apoio”.</p></div></div>
@@ -448,7 +449,11 @@ async function rpc(fn, body) {
 const fmtDate = s => s ? new Date(s).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) : '';
 const isAnswered = a => !!(a && (a.resposta || '').trim());
 const orgById = slug => STATE.orgaos.find(o => o.slug === slug);
-const qsFor = slug => QUESTIONS.filter(q => q.orgaos.includes(slug));
+const GERAL = 'geral';
+const qsFor = slug => slug === GERAL ? QUESTIONS : QUESTIONS.filter(q => q.orgaos.includes(slug));
+const orgsReais = () => STATE.orgaos.filter(o => o.slug !== GERAL);
+const answeredBy = q => [...q.orgaos, GERAL].some(s => isAnswered((STATE.ans[s] || {})[q.n]));
+const answeredQs = () => QUESTIONS.filter(answeredBy).length;
 const doneFor = slug => qsFor(slug).filter(q => isAnswered((STATE.ans[slug] || {})[q.n])).length;
 const pct = (a, b) => b ? Math.round(a / b * 100) : 0;
 const bar = (done, total, cls) => el('div', { class: 'bar ' + (cls || '') }, el('i', { style: `width:${pct(done, total)}%` }));
@@ -484,8 +489,8 @@ const today = () => new Date().toISOString().slice(0, 10);
 
 /* ---------- início ---------- */
 function homeView() {
-  const pairs = STATE.orgaos.reduce((s, o) => s + qsFor(o.slug).length, 0);
-  const done = STATE.orgaos.reduce((s, o) => s + doneFor(o.slug), 0);
+  const pairs = QUESTIONS.length;
+  const done = answeredQs();
   const card = (n, h, p, go, href) => el('a', { class: 'action-card', href }, el('span', { class: 'n' }, n), el('h3', {}, h), el('p', {}, p), el('span', { class: 'go' }, go + ' →'));
   return [
     el('header', { class: 'top' }, el('div', { class: 'wrap' },
@@ -499,8 +504,8 @@ function homeView() {
       el('div', { class: 'stat-row' },
         el('div', { class: 'stat' }, el('b', {}, QUESTIONS.length), el('span', {}, 'perguntas')),
         el('div', { class: 'stat' }, el('b', {}, BLOCOS().length), el('span', {}, 'blocos temáticos')),
-        el('div', { class: 'stat' }, el('b', {}, STATE.orgaos.length), el('span', {}, 'órgãos participantes')),
-        el('div', { class: 'stat' }, el('b', {}, pct(done, pairs) + '%'), el('span', {}, `respondido (${done} de ${pairs})`))))),
+        el('div', { class: 'stat' }, el('b', {}, orgsReais().length), el('span', {}, 'órgãos participantes')),
+        el('div', { class: 'stat' }, el('b', {}, pct(done, pairs) + '%'), el('span', {}, `respondido (${done} de ${pairs} perguntas)`))))),
     el('main', {}, el('div', { class: 'wrap' },
       el('p', { class: 'kicker' }, 'Por onde começar'),
       el('div', { class: 'action-grid' },
@@ -509,7 +514,7 @@ function homeView() {
         card('3', 'Acompanhe o andamento', 'Veja o progresso por órgão e por bloco, e baixe o consolidado em XLSX.', 'Ver andamento', '#/andamento')),
       el('p', { class: 'kicker' }, 'Como funciona'),
       el('div', { class: 'steps' },
-        step(1, 'Abra o seu órgão', 'Na aba “Responder”, clique no botão do seu órgão.'),
+        step(1, 'Abra o seu órgão', 'Na aba “Responder”, clique no botão do seu órgão, ou em “Todas as perguntas” para responder tudo em um só lugar.'),
         step(2, 'Responda e indique o documento de apoio', 'Escreva a resposta, marque a situação e, se houver, cite o documento. O salvamento é automático.'),
         step(3, 'Veja o que os outros órgãos responderam', 'Na aba “Respostas”, todos os órgãos podem consultar o que já foi registrado.')),
       el('p', { class: 'quote' }, 'Não há resposta certa ou errada: o que existe hoje, como existe, é o que precisamos saber.')))
@@ -524,8 +529,8 @@ function responderView() {
       el('p', { class: 'lead' }, 'As respostas são salvas automaticamente e ficam visíveis para todos os órgãos participantes. Você pode voltar depois para continuar de onde parou.'),
       el('div', { class: 'org-grid' }, STATE.orgaos.map(o => {
         const total = qsFor(o.slug).length, done = doneFor(o.slug);
-        return el('div', { class: 'org-card' },
-          el('h3', {}, o.nome), el('p', { class: 'org-meta' }, `${total} perguntas para este órgão`),
+        return el('div', { class: 'org-card' + (o.slug === GERAL ? ' geral' : '') },
+          el('h3', {}, o.nome), el('p', { class: 'org-meta' }, o.slug === GERAL ? `${total} perguntas, para responder tudo em um só lugar` : `${total} perguntas para este órgão`),
           el('div', { class: 'progress-text dark' }, el('b', {}, `${done} de ${total}`), ' respondidas'), bar(done, total, 'light'),
           el('a', { class: 'btn btn-link', href: '#/orgao/' + o.slug }, done ? 'Continuar respondendo' : 'Responder'));
       })),
@@ -578,7 +583,8 @@ function orgView(slug, focusN) {
     const c = el('div', { class: 'q', id: 'q' + q.n },
       el('div', { class: 'q-top' }, el('span', { class: 'q-n' }, q.n), el('p', { class: 'q-text' }, q.pergunta)),
       el('p', { class: 'q-why' }, q.porque),
-      others.length ? el('p', { class: 'q-also' }, 'Também respondida por: ' + others.join(', ')) : null,
+      slug === GERAL ? el('p', { class: 'q-also' }, 'Órgão(s) indicado(s) para esta pergunta: ' + q.orgaos.map(o => (orgById(o) || {}).nome || o).join(', '))
+        : (others.length ? el('p', { class: 'q-also' }, 'Também respondida por: ' + others.join(', ')) : null),
       el('div', { class: 'q-fields' },
         el('div', {}, el('label', { for: 'r' + q.n }, 'Resposta'), ta),
         el('div', { class: 'row2' },
@@ -637,14 +643,15 @@ function orgView(slug, focusN) {
 
 /* ---------- andamento ---------- */
 function andamentoView() {
-  const pairs = STATE.orgaos.reduce((s, o) => s + qsFor(o.slug).length, 0);
-  const done = STATE.orgaos.reduce((s, o) => s + doneFor(o.slug), 0);
+  const pairs = QUESTIONS.length;
+  const done = answeredQs();
   function exportAll() {
-    const all = []; QUESTIONS.forEach(q => q.orgaos.forEach(slug => all.push({ q, slug, a: (STATE.ans[slug] || {})[q.n] })));
+    const all = []; QUESTIONS.forEach(q => [...q.orgaos, GERAL].forEach(slug => { const a = (STATE.ans[slug] || {})[q.n]; if (slug !== GERAL || isAnswered(a)) all.push({ q, slug, a }); }));
     const wb = XLSX.utils.book_new();
     const ws = XLSX.utils.json_to_sheet(xlsxRows(all)); ws['!cols'] = COLS; XLSX.utils.book_append_sheet(wb, ws, 'Consolidado');
     STATE.orgaos.forEach(o => {
       const rows = xlsxRows(all.filter(x => x.slug === o.slug)).map(({ 'Órgão': _, ...r }) => r);
+      if (!rows.length) return;
       const w = XLSX.utils.json_to_sheet(rows); w['!cols'] = COLS.filter((_, i) => i !== 3); XLSX.utils.book_append_sheet(wb, w, o.slug.slice(0, 31));
     });
     XLSX.writeFile(wb, `Diagnostico_Consolidado_${today()}.xlsx`);
@@ -657,19 +664,19 @@ function andamentoView() {
   });
   const blkRows = BLOCOS().map(([b, t]) => {
     let total = 0, d = 0;
-    QUESTIONS.filter(q => q.bloco === b).forEach(q => q.orgaos.forEach(slug => { total++; if (isAnswered((STATE.ans[slug] || {})[q.n])) d++; }));
+    QUESTIONS.filter(q => q.bloco === b).forEach(q => { total++; if (answeredBy(q)) d++; });
     return el('tr', {}, el('td', {}, `${b}. ${t}`), el('td', {}, el('span', { class: 'bar' }, el('i', { style: `width:${pct(d, total)}%` })), `${d}/${total}`), el('td', {}, pct(d, total) + '%'));
   });
   return [
     pageHead('Andamento', 'Andamento do diagnóstico', null, el('div', { class: 'progress-row' },
-      el('div', { class: 'progress-box' }, el('div', { class: 'progress-text' }, el('b', {}, `${done} de ${pairs}`), ' respostas registradas'), el('div', { class: 'bar' }, el('i', { style: `width:${pct(done, pairs)}%` }))),
+      el('div', { class: 'progress-box' }, el('div', { class: 'progress-text' }, el('b', {}, `${done} de ${pairs}`), ' perguntas respondidas'), el('div', { class: 'bar' }, el('i', { style: `width:${pct(done, pairs)}%` }))),
       el('button', { class: 'btn', onclick: exportAll }, 'Exportar consolidado XLSX'))),
     el('main', {}, el('div', { class: 'wrap' },
       el('p', { class: 'kicker' }, 'Por órgão'),
       el('table', {}, el('thead', {}, el('tr', {}, ...['Órgão', 'Progresso', 'Última atualização', ''].map(h => el('th', {}, h)))), el('tbody', {}, ...orgRows)),
       el('p', { class: 'kicker' }, 'Por bloco temático'),
       el('table', {}, el('thead', {}, el('tr', {}, ...['Bloco', 'Progresso', '%'].map(h => el('th', {}, h)))), el('tbody', {}, ...blkRows)),
-      el('p', { class: 'lead' }, 'Cada pergunta compartilhada entre dois órgãos conta uma vez para cada órgão.')))
+      el('p', { class: 'lead' }, 'Uma pergunta conta como respondida quando algum órgão, ou a equipe em “Todas as perguntas”, a respondeu.')))
   ];
 }
 
@@ -687,8 +694,9 @@ function respostasView() {
   cb.addEventListener('change', () => { f.pend = cb.checked; render(); });
   function render() {
     list.replaceChildren(); let n = 0;
-    QUESTIONS.forEach(q => q.orgaos.forEach(slug => {
+    QUESTIONS.forEach(q => [...q.orgaos, GERAL].forEach(slug => {
       const a = (STATE.ans[slug] || {})[q.n], ok = isAnswered(a);
+      if (slug === GERAL && !ok) return;
       if (f.org !== 'todos' && slug !== f.org) return;
       if (f.blk !== 'todos' && q.bloco !== f.blk) return;
       if (!ok && !f.pend) return;
