@@ -109,6 +109,14 @@
   .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper-soft);padding:12px 20px;font-size:14px;border-left:4px solid var(--alert);z-index:50;max-width:90%;}
   footer.foot{background:var(--ink);color:rgba(239,233,220,0.6);padding:28px 0;font-size:13px;}
 
+  .org-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(290px,100%),1fr));gap:18px;margin-bottom:10px;}
+  .org-card{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:24px 24px 26px;display:flex;flex-direction:column;}
+  .org-card h3{font-size:19px;margin-bottom:6px;}
+  .org-meta{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+  .progress-text.dark{color:var(--ink-soft);}
+  .progress-text.dark b{color:var(--seal);}
+  .bar.light{background:var(--paper-dark);margin-bottom:20px;}
+  .btn-link{display:inline-block;text-align:center;text-decoration:none;margin-top:auto;}
   @media (max-width:760px){
     .dd-grid,.row2{grid-template-columns:1fr;}
     .q-why,.q-fields,.save-line,.q-also{margin-left:0;}
@@ -197,6 +205,7 @@ function guideView() {
       el('div', { class: 're fill' }, el('span', { class: 'tag' }, 'Resposta'), el('p', {}, 'Cerca de 130 publicados; aproximadamente 110 podem ser concluídos sem ida a um posto.')),
       el('div', { class: 're fill' }, el('span', { class: 'tag' }, 'Documento de apoio'), el('p', {}, 'Lista de serviços do Expresso, ago/2026'))),
     el('p', { class: 'quote' }, 'Um número, uma estimativa assumida como tal e a fonte. Isso já basta.'),
+    el('p', { style: 'margin-bottom:34px' }, el('a', { class: 'btn btn-link', href: 'orientacoes.html', target: '_blank', rel: 'noopener' }, 'Abrir o guia completo de preenchimento')),
     el('p', { class: 'kicker' }, 'Ao concluir'),
     el('p', { class: 'lead' }, 'Use o botão “Exportar XLSX” no topo para baixar uma cópia das suas respostas. As respostas já ficam registradas automaticamente; a planilha serve para guardar o seu próprio registro.')
   );
@@ -329,6 +338,7 @@ async function orgView(token) {
       el('p', { class: 'who-name' }, data.nome),
       el('div', { class: 'progress-row' },
         el('div', { class: 'progress-box' }, progText, el('div', { class: 'bar' }, barFill)),
+        el('a', { class: 'btn ghost btn-link', href: location.pathname, style: 'margin-top:0' }, '← Trocar de órgão'),
         el('button', { class: 'btn', onclick: exportXlsx }, 'Exportar XLSX')),
       el('div', { class: 'tabs' }, tabG, tabQ))),
     el('main', {}, el('div', { class: 'wrap' }, guide, qview)),
@@ -409,8 +419,37 @@ function fail(msg) {
   const t = params.get('t'), adm = params.get('admin');
   if (adm) return adminView(adm);
   if (t) return orgView(t);
-  fail('Para responder, use o link individual enviado ao seu órgão.');
+  landingView();
 })();
+
+async function landingView() {
+  let lista;
+  try { lista = await rpc('listar_orgaos', {}); }
+  catch (e) { return fail('Não foi possível carregar a lista de órgãos. Tente novamente.'); }
+  const cards = lista.map(o => {
+    const total = QUESTIONS.filter(q => q.orgaos.includes(o.slug)).length;
+    const done = Math.min(o.respondidas, total);
+    return el('div', { class: 'org-card' },
+      el('h3', {}, o.nome),
+      el('p', { class: 'org-meta' }, `${total} perguntas para este órgão`),
+      el('div', { class: 'progress-text dark' }, el('b', {}, `${done} de ${total}`), ' respondidas'),
+      el('div', { class: 'bar light' }, el('i', { style: `width:${total ? done / total * 100 : 0}%` })),
+      el('a', { class: 'btn btn-link', href: `?t=${encodeURIComponent(o.token)}` }, done ? 'Continuar respondendo' : 'Responder'));
+  });
+  $app.append(
+    el('header', { class: 'top' }, el('div', { class: 'wrap' },
+      el('p', { class: 'org-line' }, 'Governo de Goiás'),
+      el('p', { class: 'sub-line' }, 'Diagnóstico de Serviços Digitais'),
+      el('h1', { style: 'padding-bottom:12px' }, 'Questionário de diagnóstico'),
+      el('p', { class: 'who-name' }, 'Escolha o seu órgão para responder'))),
+    el('main', {}, el('div', { class: 'wrap' },
+      el('p', { class: 'lead' }, 'Clique no botão do seu órgão para abrir as perguntas dele. As respostas são salvas automaticamente e ficam visíveis para todos os órgãos participantes. Respostas parciais são bem-vindas, e você pode voltar depois para continuar.'),
+      el('p', { style: 'margin-bottom:28px' }, el('a', { class: 'btn btn-link', href: 'orientacoes.html' }, 'Ver orientações de preenchimento')),
+      el('div', { class: 'org-grid' }, cards),
+      el('p', { class: 'quote' }, 'Não insira dados pessoais de cidadãos, senhas ou informações sigilosas.'))),
+    el('footer', { class: 'foot' }, el('div', { class: 'wrap' }, 'Governo de Goiás · Diagnóstico de Serviços Digitais'))
+  );
+}
 </script>
 </body>
 </html>
