@@ -1,0 +1,723 @@
+[
+ {
+  "n": 1,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Quantos serviços Goiás oferece no total e quantos um cidadão pode realizar do início ao fim sem precisar ir a um posto de atendimento?",
+  "quem": "Sead / Governo digital",
+  "porque": "Mostra onde está o esforço restante e nos dá um número inicial em comum.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 2,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Quais serviços ainda exigem uma etapa presencial e qual é o motivo — uma assinatura, um documento original, uma verificação biométrica, uma inspeção ou uma exigência legal?",
+  "quem": "Responsáveis pelos serviços em cada secretaria",
+  "porque": "Separa os serviços que poderiam ser concluídos online hoje daqueles que antes precisam de mudança legal ou de processo.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 3,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Quais são os vinte serviços com maior volume e os dez que geram mais reclamações por parte dos cidadãos?",
+  "quem": "Sead / Ouvidoria",
+  "porque": "Ajuda a escolher uma primeira jornada que o cidadão realmente perceba.",
+  "orgaos": [
+   "sead",
+   "ouvidoria"
+  ]
+ },
+ {
+  "n": 4,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Como o catálogo oficial de serviços é mantido atualmente — como páginas da web, como um documento ou como um sistema que outras aplicações conseguem ler?",
+  "quem": "Sead / Governo digital",
+  "porque": "Define a rapidez com que os serviços podem ser apresentados de forma consistente em todos os canais.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 5,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Que informações cada entrada do catálogo contém — quem é elegível, quais documentos são necessários, o prazo previsto, a taxa, o órgão responsável?",
+  "quem": "Sead / Governo digital",
+  "porque": "Quanto mais rico o cadastro, mais se pode automatizar sem construir cada serviço manualmente.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 6,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Os mesmos serviços são apresentados da mesma forma no portal, no aplicativo, nos totens, nos guichês do Vapt Vupt e nos Correios — ou cada canal mantém sua própria lista?",
+  "quem": "Operações de atendimento",
+  "porque": "Confirma se um catálogo único eliminaria trabalho hoje duplicado cinco vezes.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 7,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "Quais são os volumes por canal e como eles evoluíram nos últimos dois anos?",
+  "quem": "Operações de atendimento",
+  "porque": "Mostra onde os cidadãos realmente estão, para que a primeira jornada seja construída onde será usada.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 8,
+  "bloco": "A",
+  "tema": "Serviços e canais",
+  "pergunta": "No caso dos serviços online de maior volume, sabe-se quantos cidadãos iniciam o processo, mas não o concluem?",
+  "quem": "Sead / Governo digital",
+  "porque": "O ponto onde um serviço é abandonado costuma ser onde a jornada quebra.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 9,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Atualmente, o goias.gov.br e o go.gov.br atendem a propósitos distintos: um concentra informações, enquanto o outro oferece serviços do Expresso. Como essa divisão é definida e por onde o cidadão deve começar?",
+  "quem": "Sead / Secti",
+  "porque": "Gostaríamos de entender o arranjo atual antes de sugerir qualquer coisa a respeito.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 10,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Um serviço aparece da mesma forma em ambos os sites — mesma descrição, mesmos requisitos, mesma próxima etapa — ou cada um é mantido separadamente?",
+  "quem": "Sead / Secti",
+  "porque": "Uma fonte única elimina trabalho hoje feito em duplicidade e mantém a experiência do cidadão consistente.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 11,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "O Expresso já foi integrado ao go.gov.br. Pretende-se realizar uma consolidação adicional e em que prazo?",
+  "quem": "Sead / Secti",
+  "porque": "Essa é uma decisão de Goiás, não nossa; conhecer a direção pretendida orienta tudo o que propusermos.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 12,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "O Login Único do gov.br é a credencial para todos os serviços ou apenas para alguns? Onde os cidadãos ainda utilizam um login estadual separado?",
+  "quem": "Equipe técnica",
+  "porque": "Entrar uma só vez é a primeira coisa que o cidadão percebe. Também é a base sobre a qual todo o resto se apoia.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 13,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Os serviços fazem distinção entre os níveis de conta gov.br (Bronze, Prata, Ouro)? Quais serviços exigem qual nível?",
+  "quem": "Equipe técnica",
+  "porque": "O nível da conta define quais serviços o cidadão consegue concluir sem ir a um guichê.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 14,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "A assinatura eletrônica avançada do gov.br é utilizada em algum lugar atualmente?",
+  "quem": "Equipe técnica",
+  "porque": "Elimina a necessidade de comparecimento presencial em um conjunto específico de serviços.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 15,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Como os cidadãos pagam por serviços que envolvem taxas — por meio de um componente único e compartilhado ou separadamente para cada órgão? O Pix é aceito?",
+  "quem": "Equipe de sistemas financeiros",
+  "porque": "É preciso uma experiência de pagamento única antes que vários serviços possam ser reunidos em uma só jornada.",
+  "orgaos": [
+   "planejamento-financas"
+  ]
+ },
+ {
+  "n": 16,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Como um pagamento chega às contas da entidade que prestou o serviço?",
+  "quem": "Equipe de sistemas financeiros",
+  "porque": "A conciliação costuma ser a metade mais difícil de um componente de pagamento compartilhado.",
+  "orgaos": [
+   "planejamento-financas"
+  ]
+ },
+ {
+  "n": 17,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Existe um único local onde o cidadão vê todas as mensagens do governo estadual, ou cada órgão faz as notificações separadamente?",
+  "quem": "Sead / Comunicação",
+  "porque": "Uma caixa de entrada única e confiável é o que permite a Goiás alcançar o cidadão antes de um prazo.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 18,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Quais canais são utilizados atualmente para alcançar os cidadãos — notificações de aplicativos, SMS, e-mail, WhatsApp? Existe uma presença oficial no WhatsApp?",
+  "quem": "Comunicação",
+  "porque": "Determina como uma mensagem proativa chegaria de fato ao cidadão.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 19,
+  "bloco": "B",
+  "tema": "A porta de entrada do cidadão",
+  "pergunta": "Existe uma norma de design publicada que as secretarias seguem ao apresentar um serviço?",
+  "quem": "Sead / Equipe de design ou UX",
+  "porque": "Um padrão compartilhado é o que faz uma única porta de entrada parecer uma única porta de entrada.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 20,
+  "bloco": "C",
+  "tema": "Em quanto tempo um novo serviço chega ao cidadão",
+  "pergunta": "Quando uma secretaria tem um novo serviço pronto, o que precisa acontecer para que o cidadão possa utilizá-lo online? Quem está envolvido?",
+  "quem": "Sead / Governo digital",
+  "porque": "Esta única resposta nos diz mais sobre a plataforma atual do que qualquer documento técnico.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 21,
+  "bloco": "C",
+  "tema": "Em quanto tempo um novo serviço chega ao cidadão",
+  "pergunta": "Quanto tempo isso normalmente leva, de estar pronto a estar disponível?",
+  "quem": "Sead / Governo digital",
+  "porque": "Dá uma linha de base com a qual Goiás pode medir a melhoria.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 22,
+  "bloco": "C",
+  "tema": "Em quanto tempo um novo serviço chega ao cidadão",
+  "pergunta": "A secretaria pode publicar ou alterar um serviço sem aguardar uma nova versão do próprio portal?",
+  "quem": "Equipe técnica",
+  "porque": "Se sim, a base é mais sólida do que a da maioria dos estados. Se não, é aqui que está o maior ganho possível.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 23,
+  "bloco": "C",
+  "tema": "Em quanto tempo um novo serviço chega ao cidadão",
+  "pergunta": "Já existem serviços integrados entre diferentes órgãos em uma jornada única para o cidadão? Como eles foram desenvolvidos?",
+  "quem": "Sead / Equipe técnica",
+  "porque": "Mostra se integrar serviços é hoje uma capacidade repetível ou um esforço pontual a cada vez.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 24,
+  "bloco": "C",
+  "tema": "Em quanto tempo um novo serviço chega ao cidadão",
+  "pergunta": "Quantas pessoas trabalham na construção e na operação da plataforma de serviços digitais atualmente?",
+  "quem": "Sead / Secti",
+  "porque": "Nos ajuda a propor um modelo que Goiás consiga sustentar, em vez de um que dependa de nós permanentemente.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 25,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Como o Comitê de Governança de Dados Estadual funciona na prática — com que frequência ele se reúne e quais decisões são tomadas?",
+  "quem": "Secti / Governança de dados",
+  "porque": "Goiás está à frente da maioria dos estados nisso. Gostaríamos de trabalhar dentro da estrutura que já existe.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 26,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "De acordo com as resoluções atuais, quais informações já podem ser compartilhadas entre as secretarias e quais ainda exigem uma decisão caso a caso?",
+  "quem": "Secti / Governança de dados",
+  "porque": "Determina a rapidez com que as primeiras jornadas poderão reutilizar informações que o cidadão já forneceu.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 27,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Quando duas entidades discordam sobre o compartilhamento, como isso é resolvido atualmente e quanto tempo isso geralmente leva?",
+  "quem": "Secti / Governança de dados",
+  "porque": "Um prazo realista aqui é o principal fator que define o ritmo de um programa como este.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 28,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Quais são as regras para o compartilhamento de informações com o governo federal, com municípios como Goiânia e com parceiros externos?",
+  "quem": "Secti / Jurídico",
+  "porque": "Afeta tanto o reuso de dados federais quanto qualquer conexão entre o Estado e a capital.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 29,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Goiás aderiu ao Conecta gov.br ou iniciou o processo? Quem é o ponto de contato do estado?",
+  "quem": "Sead / Equipe técnica",
+  "porque": "É assim que os serviços deixam de pedir ao cidadão documentos que o governo federal já possui.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 30,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Quem é o Encarregado de Dados (Data Protection Officer) do estado e como essa função está envolvida em novos serviços?",
+  "quem": "Secti / Jurídico / DPO",
+  "porque": "Gostaríamos de ter o DPO envolvido desde a fase de desenho, e não apenas na aprovação.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 31,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "O Ipasgo Saúde passou a ser um Serviço Social Autônomo, em vez de integrar a administração direta. Quais outros órgãos que detêm dados de cidadãos estão fora da administração direta, e quais regras se aplicam ao compartilhamento de informações com eles?",
+  "quem": "Secti / Jurídico",
+  "porque": "O compartilhamento com entes autônomos e serviços sociais segue regras diferentes do compartilhamento entre secretarias, o que afeta a sequência.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 32,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Goiás possui um repositório central que reúne informações de diversas secretarias? O que ele contém e quem o utiliza?",
+  "quem": "Secti / Equipe de dados",
+  "porque": "Evita propor algo que já existe e nos mostra o que já funciona bem.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 33,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Existe um registro de referência único para um cidadão (pelo CPF), uma empresa (pelo CNPJ) ou um endereço?",
+  "quem": "Equipe de dados",
+  "porque": "Sem um registro único, o mesmo cidadão aparece como várias pessoas diferentes em todo o governo.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 34,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Quando o mesmo CPF aparece com nomes, endereços ou dados de contato diferentes em sistemas distintos, como isso é resolvido atualmente?",
+  "quem": "Equipe de dados",
+  "porque": "Este é o trabalho prático por trás de \"o cidadão informa a Goiás uma só vez\".",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 35,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Existe um padrão de referência de endereçamento para o estado? Como são tratadas as áreas sem endereçamento formal?",
+  "quem": "Equipe de geoprocessamento / Planejamento",
+  "porque": "Endereços são a base silenciosa de qualquer solução baseada em mapas e o item mais frequentemente subestimado.",
+  "orgaos": [
+   "secti",
+   "planejamento-financas"
+  ]
+ },
+ {
+  "n": 36,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Quais problemas de qualidade de dados já são conhecidos e estão sendo tratados?",
+  "quem": "Equipe de dados",
+  "porque": "Um problema conhecido é muito mais fácil de planejar do que um descoberto no meio do projeto.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 37,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "O portal de dados abertos é publicado a partir da mesma fonte que os relatórios internos ou é mantido separadamente?",
+  "quem": "Transparência / Equipe de dados",
+  "porque": "Se compartilham a mesma fonte, as obrigações de transparência são cumpridas automaticamente, e não como trabalho extra.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 38,
+  "bloco": "D",
+  "tema": "Informações que o Estado já possui",
+  "pergunta": "Como são registradas atualmente as solicitações de informações entre órgãos — quem solicitou, com que finalidade e com base em que fundamento jurídico?",
+  "quem": "DPO / Equipe técnica",
+  "porque": "Registrar isso corretamente é o que permite ampliar o compartilhamento de dados com segurança.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 39,
+  "bloco": "E",
+  "tema": "Sistemas por trás dos serviços",
+  "pergunta": "Quais sistemas realizam o maior volume de transações cidadãs – Detran-GO, Saneago, Ipasgo Saúde, Secretaria de Economia, Seduc, Semad, Agrodefesa, outros?",
+  "quem": "Secti / Equipe técnica",
+  "porque": "Identifica onde as primeiras conexões devem ser feitas.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 40,
+  "bloco": "E",
+  "tema": "Sistemas por trás dos serviços",
+  "pergunta": "Para cada um deles, o sistema foi desenvolvido internamente ou fornecido por um fornecedor, e quando termina o contrato atual?",
+  "quem": "Secti / Compras",
+  "porque": "O prazo dos contratos costuma definir o que é viável em cada ano.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 41,
+  "bloco": "E",
+  "tema": "Sistemas por trás dos serviços",
+  "pergunta": "Esses sistemas oferecem interfaces documentadas (APIs) que outros sistemas podem utilizar, ou o acesso ao banco de dados é a única via?",
+  "quem": "Equipe técnica",
+  "porque": "Determina o esforço de cada conexão e se ela pode ser feita sem alterar o próprio sistema.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 42,
+  "bloco": "E",
+  "tema": "Sistemas por trás dos serviços",
+  "pergunta": "Existe alguma plataforma de integração ou gateway de API que as novas conexões devam utilizar?",
+  "quem": "Equipe técnica",
+  "porque": "Preferimos usar o que Goiás já tem a acrescentar outra camada ao lado.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 43,
+  "bloco": "E",
+  "tema": "Sistemas por trás dos serviços",
+  "pergunta": "Existem sistemas que não podem ser alterados atualmente — sem suporte, com o fornecedor não mais disponível ou com o código-fonte indisponível?",
+  "quem": "Equipe técnica",
+  "porque": "Todo governo tem um ou dois. Saber disso cedo evita planejar em torno de algo que não pode ser alterado.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 44,
+  "bloco": "E",
+  "tema": "Sistemas por trás dos serviços",
+  "pergunta": "Quais sistemas são operados diretamente por Goiás e quais são operados por outra organização em nome do estado?",
+  "quem": "Secti / Sead",
+  "porque": "Nos diz quem precisa participar de cada conversa.",
+  "orgaos": [
+   "secti",
+   "sead"
+  ]
+ },
+ {
+  "n": 45,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Como o governo estadual e a administração municipal de Goiânia trabalham em conjunto no atendimento ao cidadão atualmente?",
+  "quem": "Gabinete do Governador / Sead",
+  "porque": "São entidades distintas; queremos propor apenas o que for realista para ambas.",
+  "orgaos": [
+   "gabinete",
+   "sead"
+  ]
+ },
+ {
+  "n": 46,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Goiânia possui um centro de operações integrado, um centro de comando para temas específicos ou nenhum dos dois atualmente?",
+  "quem": "Operações de Goiânia",
+  "porque": "Não conseguimos confirmar isso por informações públicas e preferimos perguntar a presumir.",
+  "orgaos": [
+   "goiania"
+  ]
+ },
+ {
+  "n": 47,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Como um cidadão relata um problema na cidade hoje — por meio de um único canal ou de vários, dependendo do tipo de problema?",
+  "quem": "Equipe de atendimento de Goiânia",
+  "porque": "Relatar costuma ser fácil; saber o que aconteceu depois, geralmente não.",
+  "orgaos": [
+   "goiania"
+  ]
+ },
+ {
+  "n": 48,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Uma vez relatado um problema, é possível acompanhá-lo através da atribuição, do trabalho de campo e da verificação em um único sistema?",
+  "quem": "Operações de Goiânia",
+  "porque": "É a diferença entre uma solicitação recebida e um problema resolvido.",
+  "orgaos": [
+   "goiania"
+  ]
+ },
+ {
+  "n": 49,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Quando um problema pertence a outro departamento, como ele é repassado e o que acontece quando a responsabilidade não está clara?",
+  "quem": "Operações de Goiânia",
+  "porque": "A passagem entre departamentos é onde a maioria das jornadas de serviço municipal quebra.",
+  "orgaos": [
+   "goiania"
+  ]
+ },
+ {
+  "n": 50,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Que monitoramento existe em toda a cidade – câmeras, água, drenagem, trânsito – e quem opera?",
+  "quem": "Operações de Goiânia / TI",
+  "porque": "Parte disso costuma ser operada por concessionárias, e não pelo próprio município.",
+  "orgaos": [
+   "goiania"
+  ]
+ },
+ {
+  "n": 51,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Quais questões da cidade são a maior prioridade para a administração no momento?",
+  "quem": "Liderança de Goiânia",
+  "porque": "Determina qual jornada municipal entregaria valor visível primeiro.",
+  "orgaos": [
+   "goiania"
+  ]
+ },
+ {
+  "n": 52,
+  "bloco": "F",
+  "tema": "Goiânia e serviços municipais",
+  "pergunta": "Existe um acordo formal que abrange o compartilhamento de informações entre o estado e Goiânia?",
+  "quem": "Jurídico / Governança de dados",
+  "porque": "Determina se uma conexão Estado–município é algo para desenhar agora ou para preparar para depois.",
+  "orgaos": [
+   "secti",
+   "goiania"
+  ]
+ },
+ {
+  "n": 53,
+  "bloco": "G",
+  "tema": "Infraestrutura e formas de trabalho",
+  "pergunta": "O estado de Goiás hospeda seus sistemas em seu próprio data center, em serviços de nuvem ou em ambos? Qual é a direção atual?",
+  "quem": "Secti / Infraestrutura",
+  "porque": "Esperamos trabalhar com o arranjo existente, em vez de propor sua substituição.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 54,
+  "bloco": "G",
+  "tema": "Infraestrutura e formas de trabalho",
+  "pergunta": "Existem requisitos sobre onde as informações do estado podem ser armazenadas ou processadas?",
+  "quem": "Jurídico / Infraestrutura",
+  "porque": "Alguns estados estabelecem requisitos mais rígidos que a lei federal. Melhor definir isso desde o início.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 55,
+  "bloco": "G",
+  "tema": "Infraestrutura e formas de trabalho",
+  "pergunta": "Quais compromissos de disponibilidade e recuperação se aplicam atualmente aos serviços voltados ao cidadão?",
+  "quem": "Infraestrutura",
+  "porque": "Define o padrão que qualquer nova plataforma deverá atender.",
+  "orgaos": [
+   "secti"
+  ]
+ },
+ {
+  "n": 56,
+  "bloco": "G",
+  "tema": "Infraestrutura e formas de trabalho",
+  "pergunta": "O estado de Goiás prevê operar a plataforma por conta própria ao longo do tempo ou que ela seja operada como um serviço?",
+  "quem": "Sead / Secti",
+  "porque": "Define como estruturamos a entrega, a capacitação e a transição.",
+  "orgaos": [
+   "sead",
+   "secti"
+  ]
+ },
+ {
+  "n": 57,
+  "bloco": "G",
+  "tema": "Infraestrutura e formas de trabalho",
+  "pergunta": "Existem expectativas quanto à transferência de conhecimento, à capacitação de servidores estaduais ou à participação local na execução?",
+  "quem": "Sead / Compras",
+  "porque": "Preferimos incluir isso no desenho desde o início a acrescentá-lo no final.",
+  "orgaos": [
+   "sead"
+  ]
+ },
+ {
+  "n": 58,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Quais trajetórias de vida são mais importantes para Goiás no momento — e quais a administração mais gostaria de destacar primeiro?",
+  "quem": "Gabinete do Governador / Sead",
+  "porque": "A primeira jornada deve ser uma que Goiás escolha, e não uma que nós sugerimos.",
+  "orgaos": [
+   "gabinete",
+   "sead"
+  ]
+ },
+ {
+  "n": 59,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Como se avaliará o sucesso deste programa daqui a doze meses, e por quem?",
+  "quem": "Gabinete do Governador / Sead",
+  "porque": "A resposta define a ordem de tudo o que faremos.",
+  "orgaos": [
+   "gabinete",
+   "sead"
+  ]
+ },
+ {
+  "n": 60,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Existe uma única métrica que a liderança mais deseja melhorar?",
+  "quem": "Gabinete do Governador",
+  "porque": "Uma métrica clara vale mais do que um painel equilibrado nesta fase.",
+  "orgaos": [
+   "gabinete"
+  ]
+ },
+ {
+  "n": 61,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Como a satisfação do cidadão é medida hoje, e com que nível de detalhe?",
+  "quem": "Ouvidoria / Sead",
+  "porque": "A satisfação por jornada é muito mais útil do que um único índice geral.",
+  "orgaos": [
+   "ouvidoria",
+   "sead"
+  ]
+ },
+ {
+  "n": 62,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Goiás tem sido reconhecido em rankings nacionais de governo digital. Melhorar essa posição é um objetivo?",
+  "quem": "Sead / Gabinete do Governador",
+  "porque": "Em caso afirmativo, podemos alinhar o trabalho à forma como essas avaliações são feitas.",
+  "orgaos": [
+   "sead",
+   "gabinete"
+  ]
+ },
+ {
+  "n": 63,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Qual órgão seria responsável por este programa e como ele seria financiado — orçamento estadual, repasse federal ou um parceiro multilateral?",
+  "quem": "Planejamento / Finanças",
+  "porque": "Afeta o prazo, o processo e como precisaríamos nos preparar.",
+  "orgaos": [
+   "planejamento-financas"
+  ]
+ },
+ {
+  "n": 64,
+  "bloco": "H",
+  "tema": "Prioridades e medição de sucesso",
+  "pergunta": "Qual é o cronograma que Goiás tem em mente, e existem datas que o programa deve levar em consideração?",
+  "quem": "Sead / Gabinete do Governador",
+  "porque": "Nos ajuda a propor fases que se encaixem no calendário do Estado, e não no nosso.",
+  "orgaos": [
+   "sead",
+   "gabinete"
+  ]
+ }
+]

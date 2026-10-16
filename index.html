@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Diagnóstico de Serviços Digitais — Goiás</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+  :root{
+    --ink:#14282A; --ink-2:#1D3336; --ink-3:#284245;
+    --paper:#EFE9DC; --paper-soft:#F8F5EC; --paper-dark:#E2DAC5;
+    --seal:#B3862F; --seal-light:#D6AE5C;
+    --trust:#2F6B63; --trust-light:#5C9089;
+    --alert:#9B4A3D; --ink-soft:#4B5450;
+    --line-on-paper:rgba(20,40,42,0.14);
+    --line-on-ink:rgba(239,233,220,0.16);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0;font-family:'IBM Plex Sans',sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:'Source Serif 4',serif;margin:0;font-weight:700;letter-spacing:-0.01em;}
+  p{margin:0;}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+  [hidden]{display:none !important;}
+
+  header.top{background:var(--ink);color:var(--paper-soft);padding:44px 0 0;}
+  .org-line{font-size:13px;color:var(--seal-light);font-weight:600;margin-bottom:4px;}
+  .sub-line{font-size:13px;color:rgba(239,233,220,0.6);margin-bottom:22px;}
+  header.top h1{font-size:clamp(26px,4vw,40px);line-height:1.12;color:var(--paper-soft);margin-bottom:8px;}
+  .who-name{font-family:'Source Serif 4',serif;font-style:italic;font-size:clamp(18px,2.4vw,23px);color:var(--seal-light);margin-bottom:26px;}
+  .progress-row{display:flex;gap:20px;align-items:center;flex-wrap:wrap;padding-bottom:26px;}
+  .progress-box{flex:1;min-width:240px;}
+  .progress-text{font-size:13px;color:rgba(239,233,220,0.75);margin-bottom:8px;}
+  .progress-text b{color:var(--seal-light);font-family:'Source Serif 4',serif;font-size:20px;}
+  .bar{height:6px;background:var(--ink-3);}
+  .bar i{display:block;height:100%;background:var(--seal);width:0;transition:width .3s;}
+  .btn{font-family:inherit;font-size:14px;font-weight:600;padding:11px 20px;border:1px solid var(--seal);background:var(--seal);color:var(--ink);cursor:pointer;border-radius:2px;}
+  .btn:hover{background:var(--seal-light);}
+  .btn.ghost{background:transparent;color:var(--paper-soft);border-color:var(--line-on-ink);}
+  .btn.ghost:hover{border-color:var(--seal-light);color:var(--seal-light);}
+  .tabs{display:flex;gap:4px;border-top:1px solid var(--line-on-ink);}
+  .tab{font-family:inherit;font-size:14px;font-weight:600;padding:14px 20px;border:0;background:transparent;color:rgba(239,233,220,0.65);cursor:pointer;border-bottom:3px solid transparent;}
+  .tab.on{color:var(--seal-light);border-bottom-color:var(--seal-light);}
+
+  main{padding:48px 0 90px;}
+  .lead{font-size:17px;line-height:1.6;color:var(--ink-soft);max-width:680px;margin-bottom:28px;}
+  .kicker{font-size:13px;font-weight:600;color:var(--seal);margin:0 0 12px;}
+  h2.h2{font-size:clamp(24px,3vw,32px);line-height:1.2;margin-bottom:16px;max-width:680px;}
+
+  /* guide */
+  .steps{display:flex;flex-direction:column;margin:20px 0 40px;}
+  .step{display:flex;gap:20px;padding:16px 0;border-top:1px solid var(--line-on-paper);}
+  .step:last-child{border-bottom:1px solid var(--line-on-paper);}
+  .step .n{flex:none;font-family:'Source Serif 4',serif;font-size:24px;font-weight:700;color:var(--seal);width:36px;}
+  .step h3{font-size:16.5px;margin-bottom:3px;}
+  .step p{font-size:14.5px;color:var(--ink-soft);line-height:1.55;}
+  .dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0 20px;}
+  .dd{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:22px 24px;}
+  .dd h3{font-size:17px;margin-bottom:12px;}
+  .dd.do h3{color:var(--trust);} .dd.dont h3{color:var(--alert);}
+  .dd ul{list-style:none;margin:0;padding:0;}
+  .dd li{font-size:14px;line-height:1.55;color:var(--ink-soft);padding:0 0 10px 20px;position:relative;}
+  .dd li::before{content:'';position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;}
+  .dd.do li::before{background:var(--trust);} .dd.dont li::before{background:var(--alert);}
+  .dd li b{color:var(--ink);font-weight:600;}
+  .example{background:var(--ink);color:var(--paper-soft);padding:6px 0;margin:20px 0;}
+  .example .re{padding:14px 22px;border-top:1px solid var(--line-on-ink);}
+  .example .re:first-child{border-top:0;}
+  .example .re.fill{background:rgba(179,134,47,0.16);}
+  .example .tag{display:block;font-size:11px;font-weight:600;color:rgba(239,233,220,0.5);margin-bottom:5px;}
+  .example .fill .tag{color:var(--seal-light);}
+  .example p{font-family:'Source Serif 4',serif;font-size:16px;line-height:1.45;}
+  .quote{font-family:'Source Serif 4',serif;font-style:italic;font-size:18px;line-height:1.5;border-left:3px solid var(--seal);padding-left:16px;max-width:620px;margin:24px 0;}
+
+  /* questions */
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;align-items:center;}
+  .chip{font-family:inherit;border:1px solid var(--ink);border-radius:20px;padding:7px 15px;font-size:13px;font-weight:500;background:transparent;color:var(--ink);cursor:pointer;}
+  .chip.on{background:var(--ink);color:var(--paper-soft);}
+  .block-head{display:flex;align-items:baseline;gap:14px;margin:34px 0 14px;padding-top:8px;border-top:1px solid var(--line-on-paper);}
+  .block-head .l{font-family:'Source Serif 4',serif;font-size:32px;font-weight:700;color:var(--seal);line-height:1;}
+  .block-head h2{font-size:21px;}
+  .q{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:22px 24px 20px;margin-bottom:14px;}
+  .q.done{border-left:4px solid var(--trust);}
+  .q-top{display:flex;gap:14px;align-items:baseline;margin-bottom:10px;}
+  .q-n{flex:none;font-family:'Source Serif 4',serif;font-weight:700;font-size:20px;color:var(--seal);min-width:30px;}
+  .q-text{font-family:'Source Serif 4',serif;font-size:17.5px;line-height:1.45;font-weight:600;}
+  .q-why{font-size:13.5px;line-height:1.5;color:var(--ink-soft);margin:0 0 4px 44px;font-style:italic;}
+  .q-also{font-size:12.5px;color:var(--trust);font-weight:600;margin:6px 0 0 44px;}
+  .q-fields{margin:14px 0 0 44px;display:grid;gap:12px;}
+  label{display:block;font-size:12px;font-weight:600;color:var(--ink-soft);margin-bottom:5px;}
+  textarea,input[type=text],select{width:100%;font-family:inherit;font-size:14.5px;color:var(--ink);background:#fff;border:1px solid var(--line-on-paper);border-radius:2px;padding:10px 12px;line-height:1.5;}
+  textarea{min-height:92px;resize:vertical;}
+  textarea:focus,input:focus,select:focus{outline:2px solid var(--seal);outline-offset:0;border-color:var(--seal);}
+  .row2{display:grid;grid-template-columns:1fr 200px;gap:12px;}
+  .save-line{font-size:12px;color:var(--ink-soft);margin:8px 0 0 44px;min-height:16px;}
+  .save-line.ok{color:var(--trust);} .save-line.err{color:var(--alert);font-weight:600;}
+
+  /* landing / admin */
+  .box{background:var(--paper-soft);border:1px solid var(--line-on-paper);padding:28px;max-width:640px;}
+  table{width:100%;border-collapse:collapse;background:var(--paper-soft);font-size:14px;}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line-on-paper);vertical-align:middle;}
+  th{font-size:12px;color:var(--ink-soft);font-weight:600;background:var(--paper-dark);}
+  td .bar{width:140px;background:var(--paper-dark);display:inline-block;vertical-align:middle;margin-right:8px;}
+  .linkcell{font-family:ui-monospace,monospace;font-size:12px;word-break:break-all;}
+  .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper-soft);padding:12px 20px;font-size:14px;border-left:4px solid var(--alert);z-index:50;max-width:90%;}
+  footer.foot{background:var(--ink);color:rgba(239,233,220,0.6);padding:28px 0;font-size:13px;}
+
+  @media (max-width:760px){
+    .dd-grid,.row2{grid-template-columns:1fr;}
+    .q-why,.q-fields,.save-line,.q-also{margin-left:0;}
+    .wrap{padding:0 18px;}
+  }
+  @media print{ .tabs,.btn{display:none;} }
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+
+<script>
+const SUPABASE_URL = 'https://ohjthzjlkagvzkaceitp.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_0eyOz_zDUdd6CvWwRkLLIg_VYEeKdJS';
+
+const STATUS = { respondida: 'Respondida', parcial: 'Parcial ou estimada', nao_sei: 'Não sei / encaminhar' };
+const ORGAO_NOMES = {
+  'sead': 'Sead', 'secti': 'Secti', 'gabinete': 'Gabinete do Governador',
+  'goiania': 'Prefeitura de Goiânia', 'planejamento-financas': 'Planejamento e Finanças', 'ouvidoria': 'Ouvidoria'
+};
+const $app = document.getElementById('app');
+const params = new URLSearchParams(location.search);
+let QUESTIONS = [];
+
+function el(tag, attrs, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs || {})) {
+    if (k === 'class') e.className = v;
+    else if (k.startsWith('on')) e.addEventListener(k.slice(2), v);
+    else if (k === 'html') e.innerHTML = v;
+    else e.setAttribute(k, v);
+  }
+  for (const kid of kids.flat()) if (kid != null) e.append(kid.nodeType ? kid : document.createTextNode(kid));
+  return e;
+}
+function toast(msg) {
+  const t = el('div', { class: 'toast' }, msg);
+  document.body.append(t); setTimeout(() => t.remove(), 5000);
+}
+async function rpc(fn, body) {
+  const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${fn}`, {
+    method: 'POST',
+    headers: { apikey: SUPABASE_KEY, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!r.ok) throw new Error(`Falha ${r.status}`);
+  return r.json();
+}
+const fmtDate = s => s ? new Date(s).toLocaleString('pt-BR', { dateStyle: 'short', timeStyle: 'short' }) : '';
+const isAnswered = a => a && (a.resposta || '').trim().length > 0;
+
+/* ---------- GUIA ---------- */
+function guideView() {
+  const root = el('div');
+  root.append(
+    el('p', { class: 'kicker' }, 'Para que serve'),
+    el('h2', { class: 'h2' }, 'Confirmar a situação atual para acordar o escopo do programa'),
+    el('p', { class: 'lead' }, 'As perguntas tratam de serviços, canais, dados, sistemas, infraestrutura e prioridades. As respostas permitem propor o que é realista para Goiás, sem partir de suposições. Não há resposta certa ou errada: o que importa é o cenário de hoje.'),
+    el('p', { class: 'kicker' }, 'Passo a passo'),
+    el('div', { class: 'steps' },
+      step(1, 'Abra a aba “Perguntas”', 'Aqui aparecem apenas as perguntas que a sua área está mais bem posicionada para responder.'),
+      step(2, 'Leia a pergunta e o “por que isso ajuda”', 'A justificativa mostra o uso da resposta e ajuda a calibrar o detalhe.'),
+      step(3, 'Escreva a resposta', 'Seja direto. Números, datas e nomes de sistemas valem mais que descrições gerais.'),
+      step(4, 'Indique o documento de apoio', 'Cite nome, data e, se houver, link do documento que sustenta a resposta.'),
+      step(5, 'Marque a situação da resposta', 'Respondida, parcial ou estimada, ou “não sei / encaminhar” — e diga quem poderia responder.'),
+      step(6, 'Acompanhe o progresso', 'Tudo é salvo automaticamente. Você pode voltar depois e continuar de onde parou.')
+    ),
+    el('div', { class: 'dd-grid' },
+      el('div', { class: 'dd do' }, el('h3', {}, 'Faça'), el('ul', {},
+        li('Responda mesmo parcialmente.', ' Meia resposta hoje vale mais que a resposta perfeita adiada.'),
+        li('Responda cada parte', ' das perguntas compostas.'),
+        li('Marque estimativas', ' como estimativas: “cerca de”, “dado de 2025”.'),
+        li('Dê números e datas', ' quando existirem: volumes, prazos, vigência de contratos.'),
+        li('Escreva “não sei”', ' quando for o caso e indique quem pode saber.'))),
+      el('div', { class: 'dd dont' }, el('h3', {}, 'Evite'), el('ul', {},
+        li('Não responda pelo que gostaria que fosse.', ' Queremos o cenário real.'),
+        li('Não insira dados pessoais', ' de cidadãos, senhas ou chaves de acesso.'),
+        li('Não use siglas internas', ' sem explicar.'),
+        li('Não cole documentos sigilosos.', ' Cite apenas o nome e a data.'),
+        li('Não deixe em branco sem explicar.', ' “Não se aplica” já é resposta.')))
+    ),
+    el('p', { class: 'kicker' }, 'Exemplo de boa resposta'),
+    el('div', { class: 'example' },
+      el('div', { class: 're' }, el('span', { class: 'tag' }, 'Pergunta'), el('p', {}, 'Quantos serviços Goiás oferece no total e quantos podem ser realizados de ponta a ponta?')),
+      el('div', { class: 're fill' }, el('span', { class: 'tag' }, 'Resposta'), el('p', {}, 'Cerca de 130 publicados; aproximadamente 110 podem ser concluídos sem ida a um posto.')),
+      el('div', { class: 're fill' }, el('span', { class: 'tag' }, 'Documento de apoio'), el('p', {}, 'Lista de serviços do Expresso, ago/2026'))),
+    el('p', { class: 'quote' }, 'Um número, uma estimativa assumida como tal e a fonte. Isso já basta.'),
+    el('p', { class: 'kicker' }, 'Ao concluir'),
+    el('p', { class: 'lead' }, 'Use o botão “Exportar XLSX” no topo para baixar uma cópia das suas respostas. As respostas já ficam registradas automaticamente; a planilha serve para guardar o seu próprio registro.')
+  );
+  return root;
+  function step(n, h, p) { return el('div', { class: 'step' }, el('div', { class: 'n' }, n), el('div', {}, el('h3', {}, h), el('p', {}, p))); }
+  function li(b, rest) { return el('li', {}, el('b', {}, b), rest); }
+}
+
+/* ---------- ÓRGÃO ---------- */
+async function orgView(token) {
+  let data;
+  try { data = await rpc('org_get', { p_token: token }); }
+  catch (e) { return fail('Não foi possível carregar. Verifique a conexão e tente novamente.'); }
+  if (!data) return fail('Link inválido ou expirado. Peça um novo link ao responsável pelo programa.');
+
+  const org = data.slug;
+  const mine = QUESTIONS.filter(q => q.orgaos.includes(org));
+  const answers = {};
+  data.respostas.forEach(a => answers[a.pergunta] = a);
+  const pending = {};          // pergunta -> timer
+  const lines = {};            // pergunta -> save-line element
+  const cards = {};
+
+  const barFill = el('i');
+  const progText = el('div', { class: 'progress-text' });
+  function updateProgress() {
+    const done = mine.filter(q => isAnswered(answers[q.n])).length;
+    progText.replaceChildren(el('b', {}, `${done} de ${mine.length}`), ' perguntas respondidas');
+    barFill.style.width = (mine.length ? done / mine.length * 100 : 0) + '%';
+    mine.forEach(q => cards[q.n] && cards[q.n].classList.toggle('done', isAnswered(answers[q.n])));
+  }
+
+  const guide = el('div', { id: 'tab-guia' }, guideView());
+  const qview = el('div', { id: 'tab-perguntas', hidden: '' });
+  let filter = 'todas';
+
+  function renderQuestions() {
+    qview.replaceChildren();
+    const chips = el('div', { class: 'filters' });
+    [['todas', 'Todas'], ['pendentes', 'Pendentes'], ['respondidas', 'Respondidas']].forEach(([k, t]) =>
+      chips.append(el('button', { class: 'chip' + (filter === k ? ' on' : ''), onclick: () => { filter = k; renderQuestions(); } }, t)));
+    qview.append(chips);
+    let last = '';
+    const list = mine.filter(q => filter === 'todas' || (filter === 'pendentes') === !isAnswered(answers[q.n]));
+    if (!list.length) qview.append(el('p', { class: 'lead' }, 'Nenhuma pergunta neste filtro.'));
+    list.forEach(q => {
+      if (q.bloco !== last) {
+        last = q.bloco;
+        qview.append(el('div', { class: 'block-head' }, el('span', { class: 'l' }, q.bloco), el('h2', {}, q.tema)));
+      }
+      qview.append(questionCard(q));
+    });
+    updateProgress();
+  }
+
+  function questionCard(q) {
+    const a = answers[q.n] || { resposta: '', documento: '', status: 'respondida' };
+    const ta = el('textarea', { id: 'r' + q.n, placeholder: 'Escreva aqui a sua resposta…' }); ta.value = a.resposta;
+    const doc = el('input', { type: 'text', id: 'd' + q.n, placeholder: 'Nome, data ou link do documento' }); doc.value = a.documento;
+    const sel = el('select', { id: 's' + q.n }, ...Object.entries(STATUS).map(([v, t]) => el('option', { value: v }, t)));
+    sel.value = a.status || 'respondida';
+    const line = el('div', { class: 'save-line' }, a.updated_at ? 'Salvo em ' + fmtDate(a.updated_at) : '');
+    lines[q.n] = line;
+    const queue = () => {
+      answers[q.n] = { ...answers[q.n], pergunta: q.n, resposta: ta.value, documento: doc.value, status: sel.value };
+      line.className = 'save-line'; line.textContent = 'Salvando…';
+      clearTimeout(pending[q.n]);
+      pending[q.n] = setTimeout(() => save(q.n), 900);
+      updateProgress();
+    };
+    [ta, doc].forEach(x => x.addEventListener('input', queue));
+    sel.addEventListener('change', queue);
+    const others = q.orgaos.filter(o => o !== org).map(o => ORGAO_NOMES[o]);
+    const card = el('div', { class: 'q' },
+      el('div', { class: 'q-top' }, el('span', { class: 'q-n' }, q.n), el('p', { class: 'q-text' }, q.pergunta)),
+      el('p', { class: 'q-why' }, q.porque),
+      others.length ? el('p', { class: 'q-also' }, 'Também respondida por: ' + others.join(', ')) : null,
+      el('div', { class: 'q-fields' },
+        el('div', {}, el('label', { for: 'r' + q.n }, 'Resposta'), ta),
+        el('div', { class: 'row2' },
+          el('div', {}, el('label', { for: 'd' + q.n }, 'Documento de apoio'), doc),
+          el('div', {}, el('label', { for: 's' + q.n }, 'Situação'), sel))),
+      line);
+    cards[q.n] = card;
+    return card;
+  }
+
+  async function save(n) {
+    const a = answers[n], line = lines[n];
+    try {
+      const ts = await rpc('org_save', { p_token: token, p_pergunta: n, p_resposta: a.resposta, p_documento: a.documento, p_status: a.status });
+      a.updated_at = ts;
+      if (line) { line.className = 'save-line ok'; line.textContent = 'Salvo em ' + fmtDate(ts); }
+    } catch (e) {
+      if (line) { line.className = 'save-line err'; line.textContent = 'Não foi possível salvar. Tentando novamente…'; }
+      pending[n] = setTimeout(() => save(n), 5000);
+    }
+  }
+  window.addEventListener('beforeunload', e => {
+    if (Object.values(lines).some(l => l.textContent === 'Salvando…' || l.classList.contains('err'))) { e.preventDefault(); e.returnValue = ''; }
+  });
+
+  function exportXlsx() {
+    const rows = mine.map(q => {
+      const a = answers[q.n] || {};
+      return { '#': q.n, 'Tema': `${q.bloco}. ${q.tema}`, 'Pergunta': q.pergunta,
+        'Quem pode responder melhor': q.quem, 'Resposta': a.resposta || '', 'Situação': a.resposta ? STATUS[a.status] || '' : '',
+        'Documento de apoio': a.documento || '', 'Atualizado em': fmtDate(a.updated_at) };
+    });
+    const ws = XLSX.utils.json_to_sheet(rows);
+    ws['!cols'] = [{ wch: 5 }, { wch: 30 }, { wch: 70 }, { wch: 28 }, { wch: 60 }, { wch: 20 }, { wch: 30 }, { wch: 18 }];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Respostas');
+    XLSX.writeFile(wb, `Diagnostico_${org}_${new Date().toISOString().slice(0, 10)}.xlsx`);
+  }
+
+  const tabG = el('button', { class: 'tab on', onclick: () => show('guia') }, 'Orientações');
+  const tabQ = el('button', { class: 'tab', onclick: () => show('perguntas') }, `Perguntas (${mine.length})`);
+  function show(w) {
+    guide.hidden = w !== 'guia'; qview.hidden = w !== 'perguntas';
+    tabG.classList.toggle('on', w === 'guia'); tabQ.classList.toggle('on', w === 'perguntas');
+    window.scrollTo({ top: 0 });
+  }
+
+  $app.append(
+    el('header', { class: 'top' }, el('div', { class: 'wrap' },
+      el('p', { class: 'org-line' }, 'Governo de Goiás'),
+      el('p', { class: 'sub-line' }, 'Diagnóstico de Serviços Digitais'),
+      el('h1', {}, 'Questionário de diagnóstico'),
+      el('p', { class: 'who-name' }, data.nome),
+      el('div', { class: 'progress-row' },
+        el('div', { class: 'progress-box' }, progText, el('div', { class: 'bar' }, barFill)),
+        el('button', { class: 'btn', onclick: exportXlsx }, 'Exportar XLSX')),
+      el('div', { class: 'tabs' }, tabG, tabQ))),
+    el('main', {}, el('div', { class: 'wrap' }, guide, qview)),
+    el('footer', { class: 'foot' }, el('div', { class: 'wrap' }, 'As respostas são salvas automaticamente. Não insira dados pessoais de cidadãos, senhas ou informações sigilosas.'))
+  );
+  renderQuestions();
+  if (mine.some(q => isAnswered(answers[q.n]))) show('perguntas');
+}
+
+/* ---------- ADMIN ---------- */
+async function adminView(token) {
+  let data;
+  try { data = await rpc('admin_get', { p_token: token }); }
+  catch (e) { return fail('Não foi possível carregar.'); }
+  if (!data) return fail('Link de administração inválido.');
+  const byOrg = {};
+  data.respostas.forEach(r => (byOrg[r.orgao] = byOrg[r.orgao] || {})[r.pergunta] = r);
+
+  const rows = data.orgaos.map(o => {
+    const qs = QUESTIONS.filter(q => q.orgaos.includes(o.slug));
+    const done = qs.filter(q => isAnswered((byOrg[o.slug] || {})[q.n])).length;
+    return { o, total: qs.length, done };
+  });
+  const tot = rows.reduce((s, r) => s + r.total, 0), dn = rows.reduce((s, r) => s + r.done, 0);
+
+  function exportAll() {
+    const wb = XLSX.utils.book_new();
+    const all = [];
+    QUESTIONS.forEach(q => q.orgaos.forEach(slug => {
+      const a = (byOrg[slug] || {})[q.n] || {};
+      const o = data.orgaos.find(x => x.slug === slug);
+      all.push({ '#': q.n, 'Tema': `${q.bloco}. ${q.tema}`, 'Pergunta': q.pergunta, 'Órgão': o ? o.nome : slug,
+        'Resposta': a.resposta || '', 'Situação': a.resposta ? STATUS[a.status] || '' : 'Pendente',
+        'Documento de apoio': a.documento || '', 'Atualizado em': fmtDate(a.updated_at) });
+    }));
+    const cols = [{ wch: 5 }, { wch: 30 }, { wch: 70 }, { wch: 34 }, { wch: 60 }, { wch: 20 }, { wch: 30 }, { wch: 18 }];
+    const ws = XLSX.utils.json_to_sheet(all); ws['!cols'] = cols;
+    XLSX.utils.book_append_sheet(wb, ws, 'Consolidado');
+    data.orgaos.forEach(o => {
+      const rs = all.filter(r => r['Órgão'] === o.nome).map(({ 'Órgão': _, ...rest }) => rest);
+      const w = XLSX.utils.json_to_sheet(rs); w['!cols'] = cols.filter((_, i) => i !== 3);
+      XLSX.utils.book_append_sheet(wb, w, o.slug.slice(0, 31));
+    });
+    XLSX.writeFile(wb, `Diagnostico_Consolidado_${new Date().toISOString().slice(0, 10)}.xlsx`);
+  }
+
+  $app.append(
+    el('header', { class: 'top' }, el('div', { class: 'wrap' },
+      el('p', { class: 'org-line' }, 'Governo de Goiás'),
+      el('p', { class: 'sub-line' }, 'Diagnóstico de Serviços Digitais · Administração'),
+      el('h1', {}, 'Andamento por órgão'),
+      el('div', { class: 'progress-row', style: 'margin-top:18px' },
+        el('div', { class: 'progress-box' }, el('div', { class: 'progress-text' }, el('b', {}, `${dn} de ${tot}`), ' respostas registradas'),
+          el('div', { class: 'bar' }, el('i', { style: `width:${tot ? dn / tot * 100 : 0}%` }))),
+        el('button', { class: 'btn', onclick: exportAll }, 'Exportar consolidado XLSX')))),
+    el('main', {}, el('div', { class: 'wrap' },
+      el('table', {},
+        el('thead', {}, el('tr', {}, ...['Órgão', 'Progresso', 'Perguntas', 'Última atualização'].map(h => el('th', {}, h)))),
+        el('tbody', {}, ...rows.map(r => {
+          const ups = Object.values(byOrg[r.o.slug] || {}).map(x => x.updated_at).sort().pop();
+          return el('tr', {}, el('td', {}, r.o.nome),
+            el('td', {}, el('span', { class: 'bar' }, el('i', { style: `width:${r.total ? r.done / r.total * 100 : 0}%` })), `${r.done}/${r.total}`),
+            el('td', {}, r.total), el('td', {}, ups ? fmtDate(ups) : '—'));
+        }))))));
+}
+
+/* ---------- LANDING ---------- */
+function fail(msg) {
+  $app.replaceChildren(el('header', { class: 'top' }, el('div', { class: 'wrap' }, el('p', { class: 'org-line' }, 'Governo de Goiás'),
+    el('h1', { style: 'padding-bottom:30px' }, 'Diagnóstico de Serviços Digitais'))),
+    el('main', {}, el('div', { class: 'wrap' }, el('div', { class: 'box' }, el('p', { class: 'lead', style: 'margin:0' }, msg)))));
+}
+
+(async function init() {
+  try {
+    const r = await fetch('questions.json'); QUESTIONS = await r.json();
+  } catch (e) { return fail('Não foi possível carregar as perguntas.'); }
+  const t = params.get('t'), adm = params.get('admin');
+  if (adm) return adminView(adm);
+  if (t) return orgView(t);
+  fail('Para responder, use o link individual enviado ao seu órgão.');
+})();
+</script>
+</body>
+</html>
